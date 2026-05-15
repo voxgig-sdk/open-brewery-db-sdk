@@ -1,0 +1,291 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Open Brewery DB",
+    "description": "A worldwide open-source brewery dataset and API. Provides public information on breweries, cideries, brewpubs, and bottleshops.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Open Brewery DB",
+      "url": "https://www.openbrewerydb.org/"
+    },
+    "license": {
+      "name": "Open Source",
+      "url": "https://www.openbrewerydb.org/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.openbrewerydb.org/v1",
+      "description": "Production API Server"
+    }
+  ],
+  "paths": {
+    "/breweries": {
+      "get": {
+        "summary": "List breweries",
+        "description": "Returns a list of breweries. Supports pagination and filtering.",
+        "operationId": "listBreweries",
+        "tags": [
+          "Breweries"
+        ],
+        "parameters": [
+          {
+            "name": "by_city",
+            "in": "query",
+            "description": "Filter breweries by city",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_state",
+            "in": "query",
+            "description": "Filter breweries by state",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_name",
+            "in": "query",
+            "description": "Filter breweries by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_type",
+            "in": "query",
+            "description": "Filter by type of brewery",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "micro",
+                "nano",
+                "regional",
+                "brewpub",
+                "large",
+                "planning",
+                "bar",
+                "contract",
+                "proprietor",
+                "closed"
+              ]
+            }
+          },
+          {
+            "name": "by_postal",
+            "in": "query",
+            "description": "Filter breweries by postal code",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "by_country",
+            "in": "query",
+            "description": "Filter breweries by country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "Page number for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "description": "Number of breweries per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 200
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Brewery"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/breweries/{id}": {
+      "get": {
+        "summary": "Get a brewery by ID",
+        "description": "Returns detailed information about a specific brewery by its unique identifier.",
+        "operationId": "getBreweryById",
+        "tags": [
+          "Breweries"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique identifier of the brewery",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Brewery"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Brewery not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Brewery": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the brewery"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the brewery"
+          },
+          "brewery_type": {
+            "type": "string",
+            "description": "Type of brewery",
+            "enum": [
+              "micro",
+              "nano",
+              "regional",
+              "brewpub",
+              "large",
+              "planning",
+              "bar",
+              "contract",
+              "proprietor",
+              "closed"
+            ]
+          },
+          "address_1": {
+            "type": "string",
+            "nullable": true,
+            "description": "Street address line 1"
+          },
+          "address_2": {
+            "type": "string",
+            "nullable": true,
+            "description": "Street address line 2"
+          },
+          "address_3": {
+            "type": "string",
+            "nullable": true,
+            "description": "Street address line 3"
+          },
+          "city": {
+            "type": "string",
+            "description": "City where the brewery is located"
+          },
+          "state_province": {
+            "type": "string",
+            "description": "State or province"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "Postal/ZIP code"
+          },
+          "country": {
+            "type": "string",
+            "description": "Country"
+          },
+          "longitude": {
+            "type": "string",
+            "nullable": true,
+            "description": "Longitude coordinate"
+          },
+          "latitude": {
+            "type": "string",
+            "nullable": true,
+            "description": "Latitude coordinate"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true,
+            "description": "Phone number"
+          },
+          "website_url": {
+            "type": "string",
+            "nullable": true,
+            "description": "Website URL"
+          },
+          "state": {
+            "type": "string",
+            "description": "State abbreviation"
+          },
+          "street": {
+            "type": "string",
+            "nullable": true,
+            "description": "Full street address"
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "brewery_type",
+          "city",
+          "country"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Breweries",
+      "description": "Operations related to brewery data"
+    }
+  ]
+}

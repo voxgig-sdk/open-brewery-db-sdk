@@ -1,0 +1,44 @@
+# BasicBreweryFlow
+
+main: kit: flow: BasicBreweryFlow:
+{
+  entity: "brewery",
+  kind: "basic",
+  name: "BasicBreweryFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "brewery_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      input: {
+        ref: "brewery_ref01",
+        srcdatavar: "brewery_ref01_data",
+        suffix: "_dt0"
+      }
+
+      match: {
+        id: "brewery01"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-brewery_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBreweryFlow"
+}

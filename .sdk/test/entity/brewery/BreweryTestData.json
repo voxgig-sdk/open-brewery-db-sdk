@@ -1,0 +1,81 @@
+{
+  "existing": {
+    "brewery": {
+      "BREWERY00": {
+        "address_1": "sa0",
+        "address_2": "sa1",
+        "address_3": "sa2",
+        "brewery_type": "sa3",
+        "city": "sa4",
+        "country": "sa5",
+        "id": "BREWERY00",
+        "latitude": "sa7",
+        "longitude": "sa8",
+        "name": "sa9",
+        "phone": "saa",
+        "postal_code": "sab",
+        "state": "sac",
+        "state_province": "sad",
+        "street": "sae",
+        "website_url": "saf"
+      },
+      "BREWERY01": {
+        "address_1": "s140",
+        "address_2": "s141",
+        "address_3": "s142",
+        "brewery_type": "s143",
+        "city": "s144",
+        "country": "s145",
+        "id": "BREWERY01",
+        "latitude": "s147",
+        "longitude": "s148",
+        "name": "s149",
+        "phone": "s14a",
+        "postal_code": "s14b",
+        "state": "s14c",
+        "state_province": "s14d",
+        "street": "s14e",
+        "website_url": "s14f"
+      },
+      "BREWERY02": {
+        "address_1": "s1e0",
+        "address_2": "s1e1",
+        "address_3": "s1e2",
+        "brewery_type": "s1e3",
+        "city": "s1e4",
+        "country": "s1e5",
+        "id": "BREWERY02",
+        "latitude": "s1e7",
+        "longitude": "s1e8",
+        "name": "s1e9",
+        "phone": "s1ea",
+        "postal_code": "s1eb",
+        "state": "s1ec",
+        "state_province": "s1ed",
+        "street": "s1ee",
+        "website_url": "s1ef"
+      }
+    }
+  },
+  "new": {
+    "brewery": {
+      "brewery_ref01": {
+        "address_1": "s280",
+        "address_2": "s281",
+        "address_3": "s282",
+        "brewery_type": "s283",
+        "city": "s284",
+        "country": "s285",
+        "latitude": "s287",
+        "longitude": "s288",
+        "name": "s289",
+        "phone": "s28a",
+        "postal_code": "s28b",
+        "state": "s28c",
+        "state_province": "s28d",
+        "street": "s28e",
+        "website_url": "s28f"
+      }
+    }
+  }
+}
