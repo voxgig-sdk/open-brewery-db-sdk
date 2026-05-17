@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/open-brewery-db-sdk/core"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/core"
 )
 
 type LogFeature struct {

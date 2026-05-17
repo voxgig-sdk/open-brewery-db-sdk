@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/open-brewery-db-sdk/core"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/core"
 )
 
 type BaseFeature struct {

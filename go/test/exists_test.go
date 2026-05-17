@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/open-brewery-db-sdk"
+	sdk "github.com/voxgig-sdk/open-brewery-db-sdk/go"
 )
 
 func TestExists(t *testing.T) {

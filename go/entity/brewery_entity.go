@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/open-brewery-db-sdk/core"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/open-brewery-db-sdk/go/utility/struct"
 )
 
 type BreweryEntity struct {

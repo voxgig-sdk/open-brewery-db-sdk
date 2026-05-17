@@ -1,10 +1,10 @@
 package voxgigopenbrewerydbsdk
 
 import (
-	"github.com/voxgig-sdk/open-brewery-db-sdk/core"
-	"github.com/voxgig-sdk/open-brewery-db-sdk/entity"
-	"github.com/voxgig-sdk/open-brewery-db-sdk/feature"
-	_ "github.com/voxgig-sdk/open-brewery-db-sdk/utility"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/core"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/entity"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/feature"
+	_ "github.com/voxgig-sdk/open-brewery-db-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

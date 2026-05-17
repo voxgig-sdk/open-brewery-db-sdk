@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/open-brewery-db-sdk"
-	"github.com/voxgig-sdk/open-brewery-db-sdk/core"
+	sdk "github.com/voxgig-sdk/open-brewery-db-sdk/go"
+	"github.com/voxgig-sdk/open-brewery-db-sdk/go/core"
 )
 
 func TestBreweryDirect(t *testing.T) {
