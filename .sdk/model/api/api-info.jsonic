@@ -21,8 +21,27 @@ main: {
       ]
       title: "Open Brewery DB"
       version: "1.0.0"
+      tagline: "Free, open-source dataset and API of breweries, cideries, brewpubs, and bottleshops worldwide"
+      homepage: "https://www.openbrewerydb.org/"
+      docs_url: "https://www.openbrewerydb.org/documentation"
+      license_short: "Free and open-source, community-maintained dataset"
+      license_md: `- Open Brewery DB is a free, open-source project maintained by a community of contributors on GitHub.
+- No authentication or API key is required to access the data.
+- CORS is reported as disabled, so calls from browsers may need a proxy.
+- Attribution to Open Brewery DB is appreciated when redistributing the data.`
+      about_md: `[Open Brewery DB](https://www.openbrewerydb.org/) is a free, community-driven dataset and HTTP API providing public information about breweries, cideries, brewpubs, and bottleshops worldwide. It is maintained by a community of contributors on GitHub rather than a single commercial operator.
+
+What you get from the API:
+
+- A \`GET /breweries\` endpoint that returns a paginated list of brewery records.
+- A \`GET /breweries/{id}\` endpoint that returns a single brewery by identifier.
+- Public-facing information such as brewery name, type, and location-related fields.
+
+The service is open and unauthenticated. CORS is disabled, so server-side or proxied requests may be required for browser clients. No formal rate limits are published, but the project is community-funded, so usage should be considerate.`
+      entity_desc: {
+        brewery: "A brewery, cidery, brewpub, or bottleshop record with public-facing information, exposed at `/breweries` (list) and `/breweries/{id}` (single)."
+      }
+      auth: false
     }
   }
-}
-
 }

@@ -194,14 +194,12 @@ func breweryDirectSetup(mockres any) *breweryDirectSetupResult {
 	env := envOverride(map[string]any{
 		"OPENBREWERYDB_TEST_BREWERY_ENTID": map[string]any{},
 		"OPENBREWERYDB_TEST_LIVE":    "FALSE",
-		"OPENBREWERYDB_APIKEY":       "NONE",
 	})
 
 	live := env["OPENBREWERYDB_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["OPENBREWERYDB_APIKEY"],
 		}
 		client := sdk.NewOpenBreweryDbSDK(mergedOpts)
 

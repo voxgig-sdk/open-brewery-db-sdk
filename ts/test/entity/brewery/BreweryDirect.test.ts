@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'OPENBREWERYDB_TEST_BREWERY_ENTID': {},
     'OPENBREWERYDB_TEST_LIVE': 'FALSE',
-    'OPENBREWERYDB_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.OPENBREWERYDB_TEST_LIVE
 
   if (live) {
     const client = new OpenBreweryDbSDK({
-      apikey: env.OPENBREWERYDB_APIKEY,
     })
 
     let idmap: any = env['OPENBREWERYDB_TEST_BREWERY_ENTID']

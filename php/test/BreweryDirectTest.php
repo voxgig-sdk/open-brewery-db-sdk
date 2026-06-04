@@ -123,14 +123,12 @@ function brewery_direct_setup($mockres)
     $env = Runner::env_override([
         "OPENBREWERYDB_TEST_BREWERY_ENTID" => [],
         "OPENBREWERYDB_TEST_LIVE" => "FALSE",
-        "OPENBREWERYDB_APIKEY" => "NONE",
     ]);
 
     $live = $env["OPENBREWERYDB_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["OPENBREWERYDB_APIKEY"],
         ];
         $client = new OpenBreweryDbSDK($merged_opts);
         return [

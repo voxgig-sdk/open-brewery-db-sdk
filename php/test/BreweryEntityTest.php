@@ -96,7 +96,6 @@ function brewery_basic_setup($extra)
         "OPENBREWERYDB_TEST_BREWERY_ENTID" => $idmap,
         "OPENBREWERYDB_TEST_LIVE" => "FALSE",
         "OPENBREWERYDB_TEST_EXPLAIN" => "FALSE",
-        "OPENBREWERYDB_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +107,6 @@ function brewery_basic_setup($extra)
     if ($env["OPENBREWERYDB_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["OPENBREWERYDB_APIKEY"],
             ],
             $extra ?? [],
         ]);

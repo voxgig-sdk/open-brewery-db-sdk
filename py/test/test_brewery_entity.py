@@ -102,7 +102,6 @@ def _brewery_basic_setup(extra):
         "OPENBREWERYDB_TEST_BREWERY_ENTID": idmap,
         "OPENBREWERYDB_TEST_LIVE": "FALSE",
         "OPENBREWERYDB_TEST_EXPLAIN": "FALSE",
-        "OPENBREWERYDB_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +112,6 @@ def _brewery_basic_setup(extra):
     if env.get("OPENBREWERYDB_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENBREWERYDB_APIKEY"),
             },
             extra or {},
         ])
