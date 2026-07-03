@@ -117,12 +117,14 @@ function brewery_direct_setup(mockres)
   local env = runner.env_override({
     ["OPENBREWERYDB_TEST_BREWERY_ENTID"] = {},
     ["OPENBREWERYDB_TEST_LIVE"] = "FALSE",
+    ["OPENBREWERYDB_APIKEY"] = "NONE",
   })
 
   local live = env["OPENBREWERYDB_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["OPENBREWERYDB_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

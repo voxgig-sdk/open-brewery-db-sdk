@@ -1,20 +1,8 @@
 # OpenBreweryDb SDK
 
-Free, open-source dataset and API of breweries, cideries, brewpubs, and bottleshops worldwide
+Open Brewery DB client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Open Brewery DB
-
-[Open Brewery DB](https://www.openbrewerydb.org/) is a free, community-driven dataset and HTTP API providing public information about breweries, cideries, brewpubs, and bottleshops worldwide. It is maintained by a community of contributors on GitHub rather than a single commercial operator.
-
-What you get from the API:
-
-- A `GET /breweries` endpoint that returns a paginated list of brewery records.
-- A `GET /breweries/{id}` endpoint that returns a single brewery by identifier.
-- Public-facing information such as brewery name, type, and location-related fields.
-
-The service is open and unauthenticated. CORS is disabled, so server-side or proxied requests may be required for browser clients. No formal rate limits are published, but the project is community-funded, so usage should be considerate.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install open-brewery-db-sdk
 luarocks install open-brewery-db-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { OpenBreweryDbSDK } from 'open-brewery-db'
 
-const client = new OpenBreweryDbSDK({})
+const client = new OpenBreweryDbSDK({
+  apikey: process.env.OPEN-BREWERY-DB_APIKEY,
+})
 
 // List all brewerys
 const brewerys = await client.Brewery().list()
+console.log(brewerys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Brewery** | A brewery, cidery, brewpub, or bottleshop record with public-facing information, exposed at `/breweries` (list) and `/breweries/{id}` (single). | `/breweries` |
+| **Brewery** |  | `/breweries` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from openbrewerydb_sdk import OpenBreweryDbSDK
 
-client = OpenBreweryDbSDK({})
+client = OpenBreweryDbSDK({
+    "apikey": os.environ.get("OPEN-BREWERY-DB_APIKEY"),
+})
 
 # List all brewerys
-brewerys, err = client.Brewery(None).list(None, None)
+brewerys, err = client.Brewery().list()
+print(brewerys)
 
 # Load a specific brewery
-brewery, err = client.Brewery(None).load(
-    {"id": "example_id"}, None
-)
+brewery, err = client.Brewery().load({"id": "example_id"})
+print(brewery)
 ```
 
 ### PHP
@@ -129,15 +122,17 @@ brewery, err = client.Brewery(None).load(
 <?php
 require_once 'openbrewerydb_sdk.php';
 
-$client = new OpenBreweryDbSDK([]);
+$client = new OpenBreweryDbSDK([
+    "apikey" => getenv("OPEN-BREWERY-DB_APIKEY"),
+]);
 
 // List all brewerys
-[$brewerys, $err] = $client->Brewery(null)->list(null, null);
+[$brewerys, $err] = $client->Brewery()->list();
+print_r($brewerys);
 
 // Load a specific brewery
-[$brewery, $err] = $client->Brewery(null)->load(
-    ["id" => "example_id"], null
-);
+[$brewery, $err] = $client->Brewery()->load(["id" => "example_id"]);
+print_r($brewery);
 ```
 
 ### Golang
@@ -145,10 +140,13 @@ $client = new OpenBreweryDbSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/open-brewery-db-sdk/go"
 
-client := sdk.NewOpenBreweryDbSDK(map[string]any{})
+client := sdk.NewOpenBreweryDbSDK(map[string]any{
+    "apikey": os.Getenv("OPEN-BREWERY-DB_APIKEY"),
+})
 
 // List all brewerys
 brewerys, err := client.Brewery(nil).List(nil, nil)
+fmt.Println(brewerys)
 ```
 
 ### Ruby
@@ -156,15 +154,17 @@ brewerys, err := client.Brewery(nil).List(nil, nil)
 ```ruby
 require_relative "OpenBreweryDb_sdk"
 
-client = OpenBreweryDbSDK.new({})
+client = OpenBreweryDbSDK.new({
+  "apikey" => ENV["OPEN-BREWERY-DB_APIKEY"],
+})
 
 # List all brewerys
-brewerys, err = client.Brewery(nil).list(nil, nil)
+brewerys, err = client.Brewery().list
+puts brewerys
 
 # Load a specific brewery
-brewery, err = client.Brewery(nil).load(
-  { "id" => "example_id" }, nil
-)
+brewery, err = client.Brewery().load({ "id" => "example_id" })
+puts brewery
 ```
 
 ### Lua
@@ -172,15 +172,17 @@ brewery, err = client.Brewery(nil).load(
 ```lua
 local sdk = require("open-brewery-db_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("OPEN-BREWERY-DB_APIKEY"),
+})
 
 -- List all brewerys
-local brewerys, err = client:Brewery(nil):list(nil, nil)
+local brewerys, err = client:Brewery():list()
+print(brewerys)
 
 -- Load a specific brewery
-local brewery, err = client:Brewery(nil):load(
-  { id = "example_id" }, nil
-)
+local brewery, err = client:Brewery():load({ id = "example_id" })
+print(brewery)
 ```
 
 ## Unit testing in offline mode
@@ -199,25 +201,21 @@ const result = await client.Brewery().load({ id: 'test01' })
 ### Python
 
 ```python
-client = OpenBreweryDbSDK.test(None, None)
-result, err = client.Brewery(None).load(
-    {"id": "test01"}, None
-)
+client = OpenBreweryDbSDK.test()
+result, err = client.Brewery().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = OpenBreweryDbSDK::test(null, null);
-[$result, $err] = $client->Brewery(null)->load(
-    ["id" => "test01"], null
-);
+$client = OpenBreweryDbSDK::test();
+[$result, $err] = $client->Brewery()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Brewery(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -226,19 +224,15 @@ result, err := client.Brewery(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpenBreweryDbSDK.test(nil, nil)
-result, err = client.Brewery(nil).load(
-  { "id" => "test01" }, nil
-)
+client = OpenBreweryDbSDK.test
+result, err = client.Brewery().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Brewery(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Brewery():load({ id = "test01" })
 ```
 
 ## How it works
@@ -342,16 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Open Brewery DB
-
-- Upstream: [https://www.openbrewerydb.org/](https://www.openbrewerydb.org/)
-- API docs: [https://www.openbrewerydb.org/documentation](https://www.openbrewerydb.org/documentation)
-
-- Open Brewery DB is a free, open-source project maintained by a community of contributors on GitHub.
-- No authentication or API key is required to access the data.
-- CORS is reported as disabled, so calls from browsers may need a proxy.
-- Attribution to Open Brewery DB is appreciated when redistributing the data.
 
 ---
 

@@ -135,6 +135,7 @@ func breweryBasicSetup(extra map[string]any) *entityTestSetup {
 		"OPENBREWERYDB_TEST_BREWERY_ENTID": idmap,
 		"OPENBREWERYDB_TEST_LIVE":      "FALSE",
 		"OPENBREWERYDB_TEST_EXPLAIN":   "FALSE",
+		"OPENBREWERYDB_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["OPENBREWERYDB_TEST_BREWERY_ENTID"])
@@ -145,6 +146,7 @@ func breweryBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["OPENBREWERYDB_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["OPENBREWERYDB_APIKEY"],
 			},
 			extra,
 		})
