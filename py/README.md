@@ -10,7 +10,7 @@ The Python SDK for the OpenBreweryDb API — an entity-oriented client following
 
 ## Install
 ```bash
-pip install open-brewery-db-sdk
+pip install voxgig-sdk-open-brewery-db
 ```
 
 Or install from source:

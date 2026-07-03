@@ -10,13 +10,13 @@ The Ruby SDK for the OpenBreweryDb API — an entity-oriented client using idiom
 
 ## Install
 ```bash
-gem install open-brewery-db-sdk
+gem install voxgig-sdk-open-brewery-db
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "open-brewery-db-sdk"
+gem "voxgig-sdk-open-brewery-db"
 ```
 
 Then run:

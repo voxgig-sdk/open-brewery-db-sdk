@@ -10,7 +10,7 @@ The TypeScript SDK for the OpenBreweryDb API — a type-safe, entity-oriented cl
 
 ## Install
 ```bash
-npm install open-brewery-db
+npm install @voxgig-sdk/open-brewery-db
 ```
 ## Tutorial: your first API call
 

@@ -10,7 +10,7 @@ The PHP SDK for the OpenBreweryDb API — an entity-oriented client using PHP co
 
 ## Install
 ```bash
-composer require voxgig/open-brewery-db-sdk
+composer require voxgig-sdk/open-brewery-db
 ```
 
 

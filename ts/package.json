@@ -1,7 +1,23 @@
 {
   "name": "@voxgig-sdk/open-brewery-db",
   "version": "0.0.1",
-  "description": "DESCRIPTION",
+  "description": "Unofficial generated TypeScript SDK for the Open Brewery DB public API. Not affiliated with or endorsed by the upstream API provider.",
+  "keywords": [
+    "voxgig",
+    "sdk",
+    "generated-sdk",
+    "openapi",
+    "api-client",
+    "open-brewery-db"
+  ],
+  "homepage": "https://github.com/voxgig-sdk/open-brewery-db-sdk#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/voxgig-sdk/open-brewery-db-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/voxgig-sdk/open-brewery-db-sdk/issues"
+  },
   "main": "dist/OpenBreweryDbSDK.js",
   "type": "commonjs",
   "types": "dist/OpenBreweryDbSDK.d.ts",
@@ -14,7 +30,10 @@
     "clean": "rm -rf node_modules yarn.lock package-lock.json",
     "reset": "npm run clean && npm i && npm run build && npm test"
   },
-  "author": "OpenBreweryDb",
+  "author": {
+    "name": "Voxgig",
+    "url": "https://voxgig.com"
+  },
   "license": "MIT",
   "dependencies": {},
   "peerDependencies": {},

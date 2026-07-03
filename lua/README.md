@@ -10,7 +10,7 @@ The Lua SDK for the OpenBreweryDb API — an entity-oriented client using Lua co
 
 ## Install
 ```bash
-luarocks install open-brewery-db-sdk
+luarocks install voxgig-sdk-open-brewery-db
 ```
 
 If the module is not yet published, add the source directory to
