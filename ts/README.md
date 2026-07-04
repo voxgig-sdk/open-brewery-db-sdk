@@ -9,9 +9,12 @@ The TypeScript SDK for the OpenBreweryDb API — a type-safe, entity-oriented cl
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/open-brewery-db
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/open-brewery-db-sdk/releases](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenBreweryDbSDK } from 'open-brewery-db'
+import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
 
-const client = new OpenBreweryDbSDK({
-  apikey: process.env.OPEN-BREWERY-DB_APIKEY,
-})
+const client = new OpenBreweryDbSDK()
 ```
 
 ### 2. List brewerys
 
 ```ts
-const result = await client.Brewery().list()
+const result = await client.brewery.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a brewery
 
 ```ts
-const result = await client.Brewery().load({ id: 'example_id' })
+const result = await client.brewery.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = OpenBreweryDbSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.brewery.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new OpenBreweryDbSDK({ apikey: '...' })
+const client = new OpenBreweryDbSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.brewery
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new OpenBreweryDbSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new OpenBreweryDbSDK({
 Create a `.env.local` file at the project root:
 
 ```
-OPEN-BREWERY-DB_TEST_LIVE=TRUE
-OPEN-BREWERY-DB_APIKEY=<your-key>
+OPEN_BREWERY_DB_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new OpenBreweryDbSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new OpenBreweryDbSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -293,7 +290,7 @@ API path: `/breweries`
 
 ### Brewery
 
-Create an instance: `const brewery = client.Brewery()`
+Create an instance: `const brewery = client.brewery`
 
 #### Operations
 
@@ -326,13 +323,13 @@ Create an instance: `const brewery = client.Brewery()`
 #### Example: Load
 
 ```ts
-const brewery = await client.Brewery().load({ id: 'brewery_id' })
+const brewery = await client.brewery.load({ id: 'brewery_id' })
 ```
 
 #### Example: List
 
 ```ts
-const brewerys = await client.Brewery().list()
+const brewerys = await client.brewery.list()
 ```
 
 
@@ -393,7 +390,7 @@ open-brewery-db/
 Import the SDK from the package root:
 
 ```ts
-import { OpenBreweryDbSDK } from 'open-brewery-db'
+import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
 ```
 
 ### Entity state
@@ -403,11 +400,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const brewery = client.brewery
+await brewery.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// brewery.data() now returns the loaded brewery data
+// brewery.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

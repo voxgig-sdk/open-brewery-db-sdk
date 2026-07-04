@@ -50,16 +50,14 @@ class TestBreweryEntity:
         brewery_ref01_ent = client.Brewery(None)
         brewery_ref01_match = {}
 
-        brewery_ref01_list_result, err = brewery_ref01_ent.list(brewery_ref01_match, None)
-        assert err is None
+        brewery_ref01_list_result = brewery_ref01_ent.list(brewery_ref01_match, None)
         assert isinstance(brewery_ref01_list_result, list)
 
         # LOAD
         brewery_ref01_match_dt0 = {
             "id": brewery_ref01_data["id"],
         }
-        brewery_ref01_data_dt0_loaded, err = brewery_ref01_ent.load(brewery_ref01_match_dt0, None)
-        assert err is None
+        brewery_ref01_data_dt0_loaded = brewery_ref01_ent.load(brewery_ref01_match_dt0, None)
         brewery_ref01_data_dt0_load_result = helpers.to_map(brewery_ref01_data_dt0_loaded)
         assert brewery_ref01_data_dt0_load_result is not None
         assert brewery_ref01_data_dt0_load_result["id"] == brewery_ref01_data["id"]
@@ -102,7 +100,6 @@ def _brewery_basic_setup(extra):
         "OPENBREWERYDB_TEST_BREWERY_ENTID": idmap,
         "OPENBREWERYDB_TEST_LIVE": "FALSE",
         "OPENBREWERYDB_TEST_EXPLAIN": "FALSE",
-        "OPENBREWERYDB_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -113,7 +110,6 @@ def _brewery_basic_setup(extra):
     if env.get("OPENBREWERYDB_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("OPENBREWERYDB_APIKEY"),
             },
             extra or {},
         ])

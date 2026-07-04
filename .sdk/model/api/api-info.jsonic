@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Open Brewery DB"
         url: "https://www.openbrewerydb.org/"

@@ -15,9 +15,6 @@ module OpenBreweryDbConfig
       },
       "options" => {
         "base" => "https://api.openbrewerydb.org/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -260,6 +257,7 @@ module OpenBreweryDbConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

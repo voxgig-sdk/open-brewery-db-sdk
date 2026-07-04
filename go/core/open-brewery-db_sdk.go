@@ -245,6 +245,9 @@ func (sdk *OpenBreweryDbSDK) Direct(fetchargs map[string]any) (map[string]any, e
 }
 
 
+// Brewery returns a Brewery entity bound to this client.
+// Idiomatic usage: client.Brewery(nil).List(nil, nil) or
+// client.Brewery(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *OpenBreweryDbSDK) Brewery(data map[string]any) OpenBreweryDbEntity {
 	return NewBreweryEntityFunc(sdk, data)
 }

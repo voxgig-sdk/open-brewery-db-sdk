@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch BreweryLoadMatch
+---@param ctrl? table
+---@return Brewery
+---@return string? err
 function BreweryEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
@@ -104,6 +108,10 @@ end
 
 
 
+---@param reqmatch BreweryListMatch
+---@param ctrl? table
+---@return Brewery[]
+---@return string? err
 function BreweryEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

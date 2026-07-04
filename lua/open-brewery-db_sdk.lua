@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:brewery():list() / client:brewery():load({ id = ... })
+function OpenBreweryDbSDK:brewery(data)
+  local EntityMod = require("entity.brewery_entity")
+  if data == nil then
+    if self._brewery == nil then
+      self._brewery = EntityMod.new(self, nil)
+    end
+    return self._brewery
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:brewery() instead.
 function OpenBreweryDbSDK:Brewery(data)
   local EntityMod = require("entity.brewery_entity")
   return EntityMod.new(self, data)

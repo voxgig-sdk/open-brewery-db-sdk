@@ -2,6 +2,8 @@
 
 import { BreweryEntity } from './entity/BreweryEntity'
 
+export type * from './OpenBreweryDbTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class OpenBreweryDbSDK {
 
 
 
+  _brewery?: BreweryEntity
+
+  // Idiomatic facade: `client.brewery.list()` / `client.brewery.load({ id })`.
+  get brewery(): BreweryEntity {
+    return (this._brewery ??= new BreweryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.brewery` instead. */
   Brewery(data?: any) {
     const self = this
     return new BreweryEntity(self,data)

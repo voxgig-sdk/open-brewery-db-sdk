@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'OPEN_BREWERY_DB_TEST_BREWERY_ENTID': idmap,
     'OPEN_BREWERY_DB_TEST_LIVE': 'FALSE',
     'OPEN_BREWERY_DB_TEST_EXPLAIN': 'FALSE',
-    'OPEN_BREWERY_DB_APIKEY': 'NONE',
   })
 
   idmap = env['OPEN_BREWERY_DB_TEST_BREWERY_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new OpenBreweryDbSDK(merge([
       {
-        apikey: env.OPEN_BREWERY_DB_APIKEY,
       },
       extra
     ]))
