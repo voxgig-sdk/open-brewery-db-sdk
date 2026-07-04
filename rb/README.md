@@ -28,16 +28,14 @@ require_relative "OpenBreweryDb_sdk"
 client = OpenBreweryDbSDK.new
 ```
 
-### 2. List brewerys
+### 2. List brewery records
 
 ```ruby
 begin
-  result = client.brewery.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Brewery records — iterate directly.
+  brewerys = client.Brewery.list
+  brewerys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.brewery.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Brewery record (raises on error).
+  brewery = client.Brewery.load({ "id" => "example_id" })
+  puts brewery
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = OpenBreweryDbSDK.test
+client = OpenBreweryDbSDK.test({
+  "entity" => { "brewery" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.brewery.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+brewery = client.Brewery.load({ "id" => "test01" })
+puts brewery
 ```
 
 ### Use a custom fetch function
@@ -249,7 +252,7 @@ API path: `/breweries`
 
 ### Brewery
 
-Create an instance: `const brewery = client.brewery`
+Create an instance: `brewery = client.Brewery`
 
 #### Operations
 
@@ -281,14 +284,16 @@ Create an instance: `const brewery = client.brewery`
 
 #### Example: Load
 
-```ts
-const brewery = await client.brewery.load({ id: 'brewery_id' })
+```ruby
+# load returns the bare Brewery record (raises on error).
+brewery = client.Brewery.load({ "id" => "brewery_id" })
 ```
 
 #### Example: List
 
-```ts
-const brewerys = await client.brewery.list()
+```ruby
+# list returns an Array of Brewery records (raises on error).
+brewerys = client.Brewery.list
 ```
 
 
@@ -363,7 +368,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-brewery = client.brewery
+brewery = client.Brewery
 brewery.load({ "id" => "example_id" })
 
 # brewery.data_get now returns the loaded brewery data

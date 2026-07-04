@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:brewery():list() / client:brewery():load({ id = ... })
-function OpenBreweryDbSDK:brewery(data)
+-- Idiomatic facade: client:Brewery():list() / client:Brewery():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function OpenBreweryDbSDK:Brewery(data)
   local EntityMod = require("entity.brewery_entity")
   if data == nil then
     if self._brewery == nil then
@@ -253,12 +254,6 @@ function OpenBreweryDbSDK:brewery(data)
     end
     return self._brewery
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:brewery() instead.
-function OpenBreweryDbSDK:Brewery(data)
-  local EntityMod = require("entity.brewery_entity")
   return EntityMod.new(self, data)
 end
 

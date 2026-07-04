@@ -29,18 +29,16 @@ require_once 'openbrewerydb_sdk.php';
 $client = new OpenBreweryDbSDK();
 ```
 
-### 2. List brewerys
+### 2. List brewery records
 
 ```php
 try {
-    $result = $client->brewery()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Brewery records — iterate directly.
+    $brewerys = $client->Brewery()->list();
+    foreach ($brewerys as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->brewery()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Brewery record (throws on error).
+    $brewery = $client->Brewery()->load(["id" => "example_id"]);
+    print_r($brewery);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = OpenBreweryDbSDK::test();
+$client = OpenBreweryDbSDK::test([
+    "entity" => ["brewery" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->brewery()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$brewery = $client->Brewery()->load(["id" => "test01"]);
+print_r($brewery);
 ```
 
 ### Use a custom fetch function
@@ -254,7 +257,7 @@ API path: `/breweries`
 
 ### Brewery
 
-Create an instance: `const brewery = client.brewery`
+Create an instance: `$brewery = $client->Brewery();`
 
 #### Operations
 
@@ -286,14 +289,16 @@ Create an instance: `const brewery = client.brewery`
 
 #### Example: Load
 
-```ts
-const brewery = await client.brewery.load({ id: 'brewery_id' })
+```php
+// load() returns the bare Brewery record (throws on error).
+$brewery = $client->Brewery()->load(["id" => "brewery_id"]);
 ```
 
 #### Example: List
 
-```ts
-const brewerys = await client.brewery.list()
+```php
+// list() returns an array of Brewery records (throws on error).
+$brewerys = $client->Brewery()->list();
 ```
 
 
@@ -368,7 +373,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$brewery = $client->brewery();
+$brewery = $client->Brewery();
 $brewery->load(["id" => "example_id"]);
 
 // $brewery->dataGet() now returns the loaded brewery data

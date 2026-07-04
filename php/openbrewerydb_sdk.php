@@ -233,10 +233,10 @@ class OpenBreweryDbSDK
 
     private $_brewery = null;
 
-    // Idiomatic facade: $client->brewery()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Brewery() (PHP method
-    // names are case-insensitive).
-    public function brewery($data = null)
+    // Canonical facade: $client->Brewery()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->brewery()
+    // resolves here too.
+    public function Brewery($data = null)
     {
         require_once __DIR__ . '/entity/brewery_entity.php';
         if ($data === null) {

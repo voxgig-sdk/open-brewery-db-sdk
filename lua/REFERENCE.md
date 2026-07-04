@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## BreweryEntity
 
 ```lua
-local brewery = client:brewery(nil)
+local brewery = client:Brewery(nil)
 ```
 
 ### Fields
@@ -114,7 +114,7 @@ local brewery = client:brewery(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:brewery():list()
+local results, err = client:Brewery():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -122,7 +122,7 @@ local results, err = client:brewery():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:brewery():load({ id = "brewery_id" })
+local result, err = client:Brewery():load({ id = "brewery_id" })
 ```
 
 ### Common Methods

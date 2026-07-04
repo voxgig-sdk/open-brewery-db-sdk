@@ -26,9 +26,11 @@ import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
 
 const client = new OpenBreweryDbSDK()
 
-// List all brewerys
-const brewerys = await client.brewery.list()
-console.log(brewerys.data)
+// List all brewerys (returns Brewery[])
+const brewerys = await client.Brewery().list()
+for (const brewery of brewerys) {
+  console.log(brewery)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,12 +85,13 @@ from openbrewerydb_sdk import OpenBreweryDbSDK
 
 client = OpenBreweryDbSDK()
 
-# List all brewerys
-brewerys = client.brewery.list()
-print(brewerys)
+# List all brewerys (returns a list, raises on error)
+brewerys = client.Brewery().list({})
+for brewery in brewerys:
+    print(brewery)
 
-# Load a specific brewery
-brewery = client.brewery.load({"id": "example_id"})
+# Load a specific brewery (returns the record, raises on error)
+brewery = client.Brewery().load({"id": "example_id"})
 print(brewery)
 ```
 
@@ -100,12 +103,12 @@ require_once 'openbrewerydb_sdk.php';
 
 $client = new OpenBreweryDbSDK();
 
-// List all brewerys (throws on error)
-$brewerys = $client->brewery()->list();
+// List all brewerys (returns an array; throws on error)
+$brewerys = $client->Brewery()->list();
 print_r($brewerys);
 
-// Load a specific brewery
-$brewery = $client->brewery()->load(["id" => "example_id"]);
+// Load a specific brewery (returns the bare record; throws on error)
+$brewery = $client->Brewery()->load(["id" => "example_id"]);
 print_r($brewery);
 ```
 
@@ -128,12 +131,12 @@ require_relative "OpenBreweryDb_sdk"
 
 client = OpenBreweryDbSDK.new
 
-# List all brewerys
-brewerys = client.brewery.list
+# List all brewerys (returns an Array; raises on error)
+brewerys = client.Brewery.list
 puts brewerys
 
-# Load a specific brewery
-brewery = client.brewery.load({ "id" => "example_id" })
+# Load a specific brewery (returns the bare record; raises on error)
+brewery = client.Brewery.load({ "id" => "example_id" })
 puts brewery
 ```
 
@@ -145,11 +148,11 @@ local sdk = require("open-brewery-db_sdk")
 local client = sdk.new()
 
 -- List all brewerys
-local brewerys, err = client:brewery():list()
+local brewerys, err = client:Brewery():list()
 print(brewerys)
 
 -- Load a specific brewery
-local brewery, err = client:brewery():load({ id = "example_id" })
+local brewery, err = client:Brewery():load({ id = "example_id" })
 print(brewery)
 ```
 
@@ -162,22 +165,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = OpenBreweryDbSDK.test()
-const result = await client.brewery.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const brewery = await client.Brewery().load({ id: 'test01' })
+// brewery is a bare Brewery populated with mock data
+console.log(brewery)
 ```
 
 ### Python
 
 ```python
 client = OpenBreweryDbSDK.test()
-result = client.brewery.load({"id": "test01"})
+brewery = client.Brewery().load({"id": "test01"})
+print(brewery)
 ```
 
 ### PHP
 
 ```php
-$client = OpenBreweryDbSDK::test();
-$result = $client->brewery()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = OpenBreweryDbSDK::test([
+    "entity" => ["brewery" => ["test01" => ["id" => "test01"]]],
+]);
+$brewery = $client->Brewery()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -192,15 +200,18 @@ result, err := client.Brewery(nil).Load(
 ### Ruby
 
 ```ruby
-client = OpenBreweryDbSDK.test
-result = client.brewery.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = OpenBreweryDbSDK.test({
+  "entity" => { "brewery" => { "test01" => { "id" => "test01" } } },
+})
+brewery = client.Brewery.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:brewery():load({ id = "test01" })
+local result, err = client:Brewery():load({ id = "test01" })
 ```
 
 ## How it works
@@ -248,6 +259,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

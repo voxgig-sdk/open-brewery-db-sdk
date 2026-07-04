@@ -109,7 +109,7 @@ Alias for `OpenBreweryDbSDK.test()`.
 ## BreweryEntity
 
 ```ts
-const brewery = client.brewery
+const brewery = client.Brewery()
 ```
 
 ### Fields
@@ -140,7 +140,7 @@ const brewery = client.brewery
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.brewery.list()
+const results = await client.Brewery().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -148,7 +148,7 @@ const results = await client.brewery.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.brewery.load({ id: 'brewery_id' })
+const result = await client.Brewery().load({ id: 'brewery_id' })
 ```
 
 ### Common Methods

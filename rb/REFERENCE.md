@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## BreweryEntity
 
 ```ruby
-brewery = client.brewery
+brewery = client.Brewery
 ```
 
 ### Fields
@@ -117,7 +117,7 @@ brewery = client.brewery
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.brewery.list(nil)
+results = client.Brewery.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -125,7 +125,7 @@ results = client.brewery.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.brewery.load({ "id" => "brewery_id" })
+result = client.Brewery.load({ "id" => "brewery_id" })
 ```
 
 ### Common Methods

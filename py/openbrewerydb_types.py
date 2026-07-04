@@ -4,54 +4,58 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Brewery:
+class BreweryRequired(TypedDict):
     brewery_type: str
     city: str
     country: str
     id: str
     name: str
-    address_1: Optional[str] = None
-    address_2: Optional[str] = None
-    address_3: Optional[str] = None
-    latitude: Optional[str] = None
-    longitude: Optional[str] = None
-    phone: Optional[str] = None
-    postal_code: Optional[str] = None
-    state: Optional[str] = None
-    state_province: Optional[str] = None
-    street: Optional[str] = None
-    website_url: Optional[str] = None
 
 
-@dataclass
-class BreweryLoadMatch:
+class Brewery(BreweryRequired, total=False):
+    address_1: str
+    address_2: str
+    address_3: str
+    latitude: str
+    longitude: str
+    phone: str
+    postal_code: str
+    state: str
+    state_province: str
+    street: str
+    website_url: str
+
+
+class BreweryLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class BreweryListMatch:
-    address_1: Optional[str] = None
-    address_2: Optional[str] = None
-    address_3: Optional[str] = None
-    brewery_type: Optional[str] = None
-    city: Optional[str] = None
-    country: Optional[str] = None
-    id: Optional[str] = None
-    latitude: Optional[str] = None
-    longitude: Optional[str] = None
-    name: Optional[str] = None
-    phone: Optional[str] = None
-    postal_code: Optional[str] = None
-    state: Optional[str] = None
-    state_province: Optional[str] = None
-    street: Optional[str] = None
-    website_url: Optional[str] = None
-
+class BreweryListMatch(TypedDict, total=False):
+    address_1: str
+    address_2: str
+    address_3: str
+    brewery_type: str
+    city: str
+    country: str
+    id: str
+    latitude: str
+    longitude: str
+    name: str
+    phone: str
+    postal_code: str
+    state: str
+    state_province: str
+    street: str
+    website_url: str

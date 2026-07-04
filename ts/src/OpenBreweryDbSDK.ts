@@ -204,14 +204,7 @@ class OpenBreweryDbSDK {
 
 
 
-  _brewery?: BreweryEntity
-
-  // Idiomatic facade: `client.brewery.list()` / `client.brewery.load({ id })`.
-  get brewery(): BreweryEntity {
-    return (this._brewery ??= new BreweryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.brewery` instead. */
+  // Entity access: `client.Brewery().list()` / `client.Brewery().load({ id })`.
   Brewery(data?: any) {
     const self = this
     return new BreweryEntity(self,data)

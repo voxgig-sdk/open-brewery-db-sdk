@@ -220,25 +220,15 @@ class OpenBreweryDbSDK:
         }
 
 
-    @property
-    def brewery(self):
-        """Idiomatic facade: client.brewery.list() / client.brewery.load({"id": ...})."""
-        from entity.brewery_entity import BreweryEntity
-        cached = getattr(self, "_brewery", None)
-        if cached is None:
-            cached = BreweryEntity(self, None)
-            self._brewery = cached
-        return cached
-
-    def Brewery(self, data=None):
-        # Deprecated: use client.brewery instead.
+    def Brewery(self, data=None) -> "BreweryEntity":
+        """Entity factory: client.Brewery().list({}) / client.Brewery().load({"id": ...})."""
         from entity.brewery_entity import BreweryEntity
         return BreweryEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "OpenBreweryDbSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class OpenBreweryDbSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.brewery_entity import BreweryEntity

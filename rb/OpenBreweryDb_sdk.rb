@@ -208,13 +208,7 @@ class OpenBreweryDbSDK
   end
 
 
-  # Idiomatic facade: client.brewery.list / client.brewery.load({ "id" => ... })
-  def brewery
-    require_relative 'entity/brewery_entity'
-    @brewery ||= BreweryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.brewery instead.
+  # Canonical facade: client.Brewery.list / client.Brewery.load({ "id" => ... })
   def Brewery(data = nil)
     require_relative 'entity/brewery_entity'
     BreweryEntity.new(self, data)

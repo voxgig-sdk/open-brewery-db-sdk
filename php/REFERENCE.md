@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## BreweryEntity
 
 ```php
-$brewery = $client->brewery();
+$brewery = $client->Brewery();
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ $brewery = $client->brewery();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->brewery()->list([]);
+$results = $client->Brewery()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -124,7 +124,7 @@ $results = $client->brewery()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->brewery()->load(["id" => "brewery_id"]);
+$result = $client->Brewery()->load(["id" => "brewery_id"]);
 ```
 
 ### Common Methods

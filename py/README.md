@@ -31,24 +31,28 @@ from openbrewerydb_sdk import OpenBreweryDbSDK
 client = OpenBreweryDbSDK()
 ```
 
-### 2. List brewerys
+### 2. List brewery records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.brewery.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    brewerys = client.Brewery().list({})
+    for brewery in brewerys:
+        print(brewery)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a brewery
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.brewery.load({"id": "example_id"})
-    print(result)
+    brewery = client.Brewery().load({"id": "example_id"})
+    print(brewery)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = OpenBreweryDbSDK.test()
 
-result = client.brewery.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+brewery = client.Brewery().load({"id": "test01"})
+# brewery contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -245,7 +250,7 @@ API path: `/breweries`
 
 ### Brewery
 
-Create an instance: `const brewery = client.brewery`
+Create an instance: `brewery = client.Brewery()`
 
 #### Operations
 
@@ -277,14 +282,14 @@ Create an instance: `const brewery = client.brewery`
 
 #### Example: Load
 
-```ts
-const brewery = await client.brewery.load({ id: 'brewery_id' })
+```python
+brewery = client.Brewery().load({"id": "brewery_id"})
 ```
 
 #### Example: List
 
-```ts
-const brewerys = await client.brewery.list()
+```python
+brewerys = client.Brewery().list({})
 ```
 
 
@@ -358,7 +363,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-brewery = client.brewery
+brewery = client.Brewery()
 brewery.load({"id": "example_id"})
 
 # brewery.data_get() now returns the loaded brewery data
