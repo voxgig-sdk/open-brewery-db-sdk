@@ -90,22 +90,22 @@ local brewery = client:Brewery(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | ``$STRING`` | No |  |
-| `address_2` | ``$STRING`` | No |  |
-| `address_3` | ``$STRING`` | No |  |
-| `brewery_type` | ``$STRING`` | Yes |  |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$STRING`` | No |  |
-| `longitude` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `phone` | ``$STRING`` | No |  |
-| `postal_code` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `state_province` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `website_url` | ``$STRING`` | No |  |
+| `address_1` | `string` | No |  |
+| `address_2` | `string` | No |  |
+| `address_3` | `string` | No |  |
+| `brewery_type` | `string` | Yes |  |
+| `city` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `latitude` | `string` | No |  |
+| `longitude` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `phone` | `string` | No |  |
+| `postal_code` | `string` | No |  |
+| `state` | `string` | No |  |
+| `state_province` | `string` | No |  |
+| `street` | `string` | No |  |
+| `website_url` | `string` | No |  |
 
 ### Operations
 

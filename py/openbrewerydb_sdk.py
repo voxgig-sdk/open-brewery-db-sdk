@@ -221,7 +221,7 @@ class OpenBreweryDbSDK:
 
 
     def Brewery(self, data=None) -> "BreweryEntity":
-        """Entity factory: client.Brewery().list({}) / client.Brewery().load({"id": ...})."""
+        """Entity factory: client.Brewery().list() / client.Brewery().load({"id": ...})."""
         from entity.brewery_entity import BreweryEntity
         return BreweryEntity(self, data)
 

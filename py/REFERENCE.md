@@ -8,7 +8,7 @@ Complete API reference for the OpenBreweryDb Python SDK.
 ### Constructor
 
 ```python
-from open-brewery-db_sdk import OpenBreweryDbSDK
+from openbrewerydb_sdk import OpenBreweryDbSDK
 
 client = OpenBreweryDbSDK(options)
 ```
@@ -87,31 +87,31 @@ brewery = client.Brewery()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | ``$STRING`` | No |  |
-| `address_2` | ``$STRING`` | No |  |
-| `address_3` | ``$STRING`` | No |  |
-| `brewery_type` | ``$STRING`` | Yes |  |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$STRING`` | No |  |
-| `longitude` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `phone` | ``$STRING`` | No |  |
-| `postal_code` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `state_province` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `website_url` | ``$STRING`` | No |  |
+| `address_1` | `str` | No |  |
+| `address_2` | `str` | No |  |
+| `address_3` | `str` | No |  |
+| `brewery_type` | `str` | Yes |  |
+| `city` | `str` | Yes |  |
+| `country` | `str` | Yes |  |
+| `id` | `str` | Yes |  |
+| `latitude` | `str` | No |  |
+| `longitude` | `str` | No |  |
+| `name` | `str` | Yes |  |
+| `phone` | `str` | No |  |
+| `postal_code` | `str` | No |  |
+| `state` | `str` | No |  |
+| `state_province` | `str` | No |  |
+| `street` | `str` | No |  |
+| `website_url` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Brewery().list({})
+results = client.Brewery().list()
 for brewery in results:
     print(brewery)
 ```

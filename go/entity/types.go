@@ -33,8 +33,7 @@ type BreweryLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// BreweryListMatch mirrors the brewery fields as an all-optional match
-// filter (Go analog of Partial<Brewery>).
+// BreweryListMatch is the typed request payload for Brewery.ListTyped.
 type BreweryListMatch struct {
 	Address1 *string `json:"address_1,omitempty"`
 	Address2 *string `json:"address_2,omitempty"`

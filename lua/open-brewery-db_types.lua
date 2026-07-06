@@ -28,6 +28,22 @@
 ---@field id string
 
 ---@class BreweryListMatch
+---@field address_1? string
+---@field address_2? string
+---@field address_3? string
+---@field brewery_type? string
+---@field city? string
+---@field country? string
+---@field id? string
+---@field latitude? string
+---@field longitude? string
+---@field name? string
+---@field phone? string
+---@field postal_code? string
+---@field state? string
+---@field state_province? string
+---@field street? string
+---@field website_url? string
 
 local M = {}
 

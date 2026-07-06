@@ -8,7 +8,7 @@ Complete API reference for the OpenBreweryDb PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/open-brewery-db_sdk.php';
+require_once __DIR__ . '/openbrewerydb_sdk.php';
 
 $client = new OpenBreweryDbSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = OpenBreweryDbSDK::test();
 
 Create a new `BreweryEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): OpenBreweryDbUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,31 +92,31 @@ $brewery = $client->Brewery();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | ``$STRING`` | No |  |
-| `address_2` | ``$STRING`` | No |  |
-| `address_3` | ``$STRING`` | No |  |
-| `brewery_type` | ``$STRING`` | Yes |  |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$STRING`` | No |  |
-| `longitude` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `phone` | ``$STRING`` | No |  |
-| `postal_code` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `state_province` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `website_url` | ``$STRING`` | No |  |
+| `address_1` | `string` | No |  |
+| `address_2` | `string` | No |  |
+| `address_3` | `string` | No |  |
+| `brewery_type` | `string` | Yes |  |
+| `city` | `string` | Yes |  |
+| `country` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `latitude` | `string` | No |  |
+| `longitude` | `string` | No |  |
+| `name` | `string` | Yes |  |
+| `phone` | `string` | No |  |
+| `postal_code` | `string` | No |  |
+| `state` | `string` | No |  |
+| `state_province` | `string` | No |  |
+| `street` | `string` | No |  |
+| `website_url` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Brewery()->list([]);
+$results = $client->Brewery()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -129,19 +129,19 @@ $result = $client->Brewery()->load(["id" => "brewery_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -150,7 +150,7 @@ Set the entity match criteria.
 Create a new `BreweryEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

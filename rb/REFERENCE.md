@@ -8,7 +8,7 @@ Complete API reference for the OpenBreweryDb Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'open-brewery-db_sdk'
+require_relative 'OpenBreweryDb_sdk'
 
 client = OpenBreweryDbSDK.new(options)
 ```
@@ -93,31 +93,31 @@ brewery = client.Brewery
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | ``$STRING`` | No |  |
-| `address_2` | ``$STRING`` | No |  |
-| `address_3` | ``$STRING`` | No |  |
-| `brewery_type` | ``$STRING`` | Yes |  |
-| `city` | ``$STRING`` | Yes |  |
-| `country` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `latitude` | ``$STRING`` | No |  |
-| `longitude` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | Yes |  |
-| `phone` | ``$STRING`` | No |  |
-| `postal_code` | ``$STRING`` | No |  |
-| `state` | ``$STRING`` | No |  |
-| `state_province` | ``$STRING`` | No |  |
-| `street` | ``$STRING`` | No |  |
-| `website_url` | ``$STRING`` | No |  |
+| `address_1` | `String` | No |  |
+| `address_2` | `String` | No |  |
+| `address_3` | `String` | No |  |
+| `brewery_type` | `String` | Yes |  |
+| `city` | `String` | Yes |  |
+| `country` | `String` | Yes |  |
+| `id` | `String` | Yes |  |
+| `latitude` | `String` | No |  |
+| `longitude` | `String` | No |  |
+| `name` | `String` | Yes |  |
+| `phone` | `String` | No |  |
+| `postal_code` | `String` | No |  |
+| `state` | `String` | No |  |
+| `state_province` | `String` | No |  |
+| `street` | `String` | No |  |
+| `website_url` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Brewery.list(nil)
+results = client.Brewery.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

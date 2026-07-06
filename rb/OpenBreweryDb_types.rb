@@ -86,7 +86,7 @@ BreweryLoadMatch = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Brewery#list (any subset of Brewery fields).
+# Request payload for Brewery#list.
 #
 # @!attribute [rw] address_1
 #   @return [String, nil]

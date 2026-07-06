@@ -39,7 +39,7 @@ class BreweryLoadMatch
     public string $id;
 }
 
-/** Match filter for Brewery#list (any subset of Brewery fields). */
+/** Request payload for Brewery#list. */
 class BreweryListMatch
 {
     public ?string $address_1 = null;
