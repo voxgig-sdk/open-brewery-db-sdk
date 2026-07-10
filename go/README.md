@@ -60,7 +60,7 @@ func main() {
     }
 
     // Load a single brewery — the value is the loaded record.
-    brewery, err := client.Brewery(nil).Load(map[string]any{"id": "example"}, nil)
+    brewery, err := client.Brewery(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

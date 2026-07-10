@@ -20,9 +20,9 @@ main: {
           url: "https://api.openbrewerydb.org/v1"
         }
       ]
+      summary: "A worldwide open-source brewery dataset and API."
       title: "Open Brewery DB"
       version: "1.0.0"
+      website: "https://openbrewerydb.org"
     }
   }
-}
-
