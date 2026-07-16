@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewOpenBreweryDbSDK(nil)
+	// Configure from the environment: OPEN_BREWERY_DB_APIKEY carries the API key and
+	// OPEN_BREWERY_DB_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("OPEN_BREWERY_DB_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("OPEN_BREWERY_DB_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewOpenBreweryDbSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {
