@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- OpenBreweryDb SDK exists test
 
 local sdk = require("open-brewery-db_sdk")
 
