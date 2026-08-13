@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'OpenBreweryDb',
   }
 
 
@@ -245,6 +245,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/breweries",
               "parts": [
@@ -290,6 +291,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/breweries/{id}",
               "parts": [

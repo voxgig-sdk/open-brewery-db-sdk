@@ -72,7 +72,7 @@ class BreweryEntityTest extends TestCase
         // The basic flow consumes synthetic IDs from the fixture. In live mode
         // without an *_ENTID env override, those IDs hit the live API and 4xx.
         if (!empty($setup["synthetic_only"])) {
-            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set OPENBREWERYDB_TEST_BREWERY_ENTID JSON to run live");
+            $this->markTestSkipped("live entity test uses synthetic IDs from fixture — set OPEN_BREWERY_DB_TEST_BREWERY_ENTID JSON to run live");
             return;
         }
         $client = $setup["client"];
@@ -97,7 +97,7 @@ class BreweryEntityTest extends TestCase
             "id" => $brewery_ref01_data["id"],
         ];
         $brewery_ref01_data_dt0_loaded = $brewery_ref01_ent->load($brewery_ref01_match_dt0, null);
-        $brewery_ref01_data_dt0_load_result = Helpers::to_map($brewery_ref01_data_dt0_loaded);
+        $brewery_ref01_data_dt0_load_result = Helpers::to_map(is_object($brewery_ref01_data_dt0_loaded) && method_exists($brewery_ref01_data_dt0_loaded, 'data_get') ? $brewery_ref01_data_dt0_loaded->data_get() : $brewery_ref01_data_dt0_loaded);
         $this->assertNotNull($brewery_ref01_data_dt0_load_result);
         $this->assertEquals($brewery_ref01_data_dt0_load_result["id"], $brewery_ref01_data["id"]);
 
@@ -126,22 +126,22 @@ function brewery_basic_setup($extra)
     // Detect ENTID env override before envOverride consumes it. When live
     // mode is on without a real override, the basic test runs against synthetic
     // IDs from the fixture and 4xx's. Surface this so the test can skip.
-    $entid_env_raw = getenv("OPENBREWERYDB_TEST_BREWERY_ENTID");
+    $entid_env_raw = getenv("OPEN_BREWERY_DB_TEST_BREWERY_ENTID");
     $idmap_overridden = $entid_env_raw !== false && str_starts_with(trim($entid_env_raw), "{");
 
     $env = Runner::env_override([
-        "OPENBREWERYDB_TEST_BREWERY_ENTID" => $idmap,
-        "OPENBREWERYDB_TEST_LIVE" => "FALSE",
-        "OPENBREWERYDB_TEST_EXPLAIN" => "FALSE",
+        "OPEN_BREWERY_DB_TEST_BREWERY_ENTID" => $idmap,
+        "OPEN_BREWERY_DB_TEST_LIVE" => "FALSE",
+        "OPEN_BREWERY_DB_TEST_EXPLAIN" => "FALSE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
-        $env["OPENBREWERYDB_TEST_BREWERY_ENTID"]);
+        $env["OPEN_BREWERY_DB_TEST_BREWERY_ENTID"]);
     if ($idmap_resolved === null) {
         $idmap_resolved = Helpers::to_map($idmap);
     }
 
-    if ($env["OPENBREWERYDB_TEST_LIVE"] === "TRUE") {
+    if ($env["OPEN_BREWERY_DB_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
             ],
@@ -150,13 +150,13 @@ function brewery_basic_setup($extra)
         $client = new OpenBreweryDbSDK(Helpers::to_map($merged_opts));
     }
 
-    $live = $env["OPENBREWERYDB_TEST_LIVE"] === "TRUE";
+    $live = $env["OPEN_BREWERY_DB_TEST_LIVE"] === "TRUE";
     return [
         "client" => $client,
         "data" => $entity_data,
         "idmap" => $idmap_resolved,
         "env" => $env,
-        "explain" => $env["OPENBREWERYDB_TEST_EXPLAIN"] === "TRUE",
+        "explain" => $env["OPEN_BREWERY_DB_TEST_EXPLAIN"] === "TRUE",
         "live" => $live,
         "synthetic_only" => $live && !$idmap_overridden,
         "now" => (int)(microtime(true) * 1000),

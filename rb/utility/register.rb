@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ OpenBreweryDbUtility.registrar = ->(u) {
   u.prepare_params = OpenBreweryDbUtilities::PrepareParams
   u.prepare_path = OpenBreweryDbUtilities::PreparePath
   u.prepare_query = OpenBreweryDbUtilities::PrepareQuery
+  u.graphql_body = OpenBreweryDbUtilities::GraphqlBody
+  u.graphql_errors = OpenBreweryDbUtilities::GraphqlErrors
   u.result_basic = OpenBreweryDbUtilities::ResultBasic
   u.result_body = OpenBreweryDbUtilities::ResultBody
   u.result_headers = OpenBreweryDbUtilities::ResultHeaders

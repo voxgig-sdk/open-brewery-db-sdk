@@ -16,11 +16,11 @@
 import pytest
 
 from openbrewerydb_sdk import OpenBreweryDbSDK
-from core.error import OpenBreweryDbError
-from core.result import OpenBreweryDbResult
-from core.response import OpenBreweryDbResponse
-from core.spec import OpenBreweryDbSpec
-from feature.base_feature import OpenBreweryDbBaseFeature
+from openbrewerydb_sdk.core.error import OpenBreweryDbError
+from openbrewerydb_sdk.core.result import OpenBreweryDbResult
+from openbrewerydb_sdk.core.response import OpenBreweryDbResponse
+from openbrewerydb_sdk.core.spec import OpenBreweryDbSpec
+from openbrewerydb_sdk.feature.base_feature import OpenBreweryDbBaseFeature
 
 
 def _client():

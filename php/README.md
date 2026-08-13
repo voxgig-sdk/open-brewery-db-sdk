@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Brewery record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Brewery record (throws on error).
     $brewery = $client->Brewery()->load(["id" => "example_id"]);
     print_r($brewery);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = OpenBreweryDbSDK::test([
     "entity" => ["brewery" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $brewery = $client->Brewery()->list();
 print_r($brewery);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -323,7 +324,7 @@ Create an instance: `$brewery = $client->Brewery();`
 #### Example: Load
 
 ```php
-// load() returns the bare Brewery record (throws on error).
+// load() returns the ENTITY — call data_get() for the Brewery record (throws on error).
 $brewery = $client->Brewery()->load(["id" => "brewery_id"]);
 ```
 

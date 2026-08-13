@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Brewery record (raises on error).
+  # load returns the ENTITY — call data_get for the Brewery record (raises on error).
   brewery = client.Brewery.load({ "id" => "example_id" })
   puts brewery
 rescue => err
@@ -134,7 +134,8 @@ client = OpenBreweryDbSDK.test({
   "entity" => { "brewery" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 brewery = client.Brewery.list()
 puts brewery
 ```
@@ -313,7 +314,7 @@ Create an instance: `brewery = client.Brewery`
 #### Example: Load
 
 ```ruby
-# load returns the bare Brewery record (raises on error).
+# load returns the ENTITY — call data_get for the Brewery record (raises on error).
 brewery = client.Brewery.load({ "id" => "brewery_id" })
 ```
 

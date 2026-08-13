@@ -215,6 +215,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/breweries",
                 ["parts"] = {
@@ -260,6 +261,7 @@ local function make_config()
                     },
                   },
                 },
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/breweries/{id}",
                 ["parts"] = {

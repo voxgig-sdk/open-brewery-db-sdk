@@ -35,7 +35,9 @@ const client = new OpenBreweryDbSDK()
 
 ### 2. List brewery records
 
-`list()` resolves to an array of Brewery objects — iterate it directly:
+`list()` resolves to an array of Brewery ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const brewerys = await client.Brewery().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = OpenBreweryDbSDK.test()
 
 const brewery = await client.Brewery().list()
-// brewery is a bare entity populated with mock response data
+// brewery is the entity, populated with mock response data
+// — call brewery.data() for the record itself
 console.log(brewery)
 ```
 

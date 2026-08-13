@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ OpenBreweryDbUtility::setRegistrar(function (OpenBreweryDbUtility $u): void {
     $u->prepare_params = [OpenBreweryDbPrepareParams::class, 'call'];
     $u->prepare_path = [OpenBreweryDbPreparePath::class, 'call'];
     $u->prepare_query = [OpenBreweryDbPrepareQuery::class, 'call'];
+    $u->graphql_body = [OpenBreweryDbGraphql::class, 'body'];
+    $u->graphql_errors = [OpenBreweryDbGraphql::class, 'errors'];
     $u->result_basic = [OpenBreweryDbResultBasic::class, 'call'];
     $u->result_body = [OpenBreweryDbResultBody::class, 'call'];
     $u->result_headers = [OpenBreweryDbResultHeaders::class, 'call'];

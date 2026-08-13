@@ -23,8 +23,8 @@ module OpenBreweryDbTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("OPENBREWERYDB_TEST_LIVE")
-    override = getenv("OPENBREWERYDB_TEST_OVERRIDE")
+    live = getenv("OPEN_BREWERY_DB_TEST_LIVE")
+    override = getenv("OPEN_BREWERY_DB_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module OpenBreweryDbTestRunner
       end
     end
 
-    explain = getenv("OPENBREWERYDB_TEST_EXPLAIN")
-    m["OPENBREWERYDB_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("OPEN_BREWERY_DB_TEST_EXPLAIN")
+    m["OPEN_BREWERY_DB_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

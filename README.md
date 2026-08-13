@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = OpenBreweryDbSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = OpenBreweryDbSDK.test({
+  entity: {
+    brewery: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const brewerys = await client.Brewery().list()
-// brewerys is an array of bare Brewery records populated with mock data
+// brewerys is an array of Brewery entities, populated with mock data
+// — call brewerys[0].data() for the record itself
 console.log(brewerys)
 ```
 
@@ -110,7 +119,7 @@ import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
 
 const client = new OpenBreweryDbSDK()
 
-// List all brewerys (returns Brewery[])
+// List all brewerys (returns BreweryEntity[] — .data() for the record)
 const brewerys = await client.Brewery().list()
 for (const brewery of brewerys) {
   console.log(brewery)
@@ -191,7 +200,7 @@ $client = new OpenBreweryDbSDK();
 $brewerys = $client->Brewery()->list();
 print_r($brewerys);
 
-// Load a specific brewery (returns the bare record; throws on error)
+// Load a specific brewery (returns the ENTITY; call data_get() for the record; throws on error)
 $brewery = $client->Brewery()->load(["id" => "example_id"]);
 print_r($brewery);
 ```
@@ -222,7 +231,7 @@ client = OpenBreweryDbSDK.new
 brewerys = client.Brewery.list
 puts brewerys
 
-# Load a specific brewery (returns the bare record; raises on error)
+# Load a specific brewery (returns the ENTITY; call data_get for the record)
 brewery = client.Brewery.load({ "id" => "example_id" })
 puts brewery
 ```
@@ -359,6 +368,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://www.openbrewerydb.org/](https://www.openbrewerydb.org/)
 

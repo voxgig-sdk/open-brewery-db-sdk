@@ -115,11 +115,11 @@ function brewery_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["OPENBREWERYDB_TEST_BREWERY_ENTID"] = {},
-    ["OPENBREWERYDB_TEST_LIVE"] = "FALSE",
+    ["OPEN_BREWERY_DB_TEST_BREWERY_ENTID"] = {},
+    ["OPEN_BREWERY_DB_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["OPENBREWERYDB_TEST_LIVE"] == "TRUE"
+  local live = env["OPEN_BREWERY_DB_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

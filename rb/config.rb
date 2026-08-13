@@ -216,6 +216,7 @@ module OpenBreweryDbConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/breweries",
                   "parts" => [
@@ -261,6 +262,7 @@ module OpenBreweryDbConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/breweries/{id}",
                   "parts" => [

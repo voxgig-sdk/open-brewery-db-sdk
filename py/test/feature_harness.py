@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import OpenBreweryDbControl
-from core.error import OpenBreweryDbError
-from core.result import OpenBreweryDbResult
-from core.spec import OpenBreweryDbSpec
+from openbrewerydb_sdk.config import make_config
+from openbrewerydb_sdk.features import _make_feature
+from openbrewerydb_sdk.core.control import OpenBreweryDbControl
+from openbrewerydb_sdk.core.error import OpenBreweryDbError
+from openbrewerydb_sdk.core.result import OpenBreweryDbResult
+from openbrewerydb_sdk.core.spec import OpenBreweryDbSpec
 
 
 # True when this SDK was generated with the named feature.

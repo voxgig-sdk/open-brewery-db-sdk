@@ -114,11 +114,11 @@ def brewery_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "OPENBREWERYDB_TEST_BREWERY_ENTID" => {},
-    "OPENBREWERYDB_TEST_LIVE" => "FALSE",
+    "OPEN_BREWERY_DB_TEST_BREWERY_ENTID" => {},
+    "OPEN_BREWERY_DB_TEST_LIVE" => "FALSE",
   })
 
-  live = env["OPENBREWERYDB_TEST_LIVE"] == "TRUE"
+  live = env["OPEN_BREWERY_DB_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

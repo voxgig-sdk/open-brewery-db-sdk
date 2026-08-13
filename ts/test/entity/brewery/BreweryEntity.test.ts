@@ -26,8 +26,8 @@ import {
 describe('BreweryEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when OPENBREWERYDB_TEST_LIVE=TRUE.
-  afterEach(liveDelay('OPENBREWERYDB_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when OPEN_BREWERY_DB_TEST_LIVE=TRUE.
+  afterEach(liveDelay('OPEN_BREWERY_DB_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = OpenBreweryDbSDK.test()
@@ -63,13 +63,13 @@ describe('BreweryEntity', async () => {
     const brewery_ref01_ent = client.Brewery()
     const brewery_ref01_match: any = {}
 
-    const brewery_ref01_list = await brewery_ref01_ent.list(brewery_ref01_match)
+    const brewery_ref01_list = (await brewery_ref01_ent.list(brewery_ref01_match)).map((e: any) => e.data())
 
 
     // LOAD
     const brewery_ref01_match_dt0: any = {}
     brewery_ref01_match_dt0.id = brewery_ref01_data.id
-    const brewery_ref01_data_dt0 = await brewery_ref01_ent.load(brewery_ref01_match_dt0)
+    const brewery_ref01_data_dt0 = (await brewery_ref01_ent.load(brewery_ref01_match_dt0)).data()
     assert(brewery_ref01_data_dt0.id === brewery_ref01_data.id)
 
 

@@ -70,7 +70,7 @@ describe("BreweryEntity", function()
     -- The basic flow consumes synthetic IDs from the fixture. In live mode
     -- without an *_ENTID env override, those IDs hit the live API and 4xx.
     if setup.synthetic_only then
-      pending("live entity test uses synthetic IDs from fixture — set OPENBREWERYDB_TEST_BREWERY_ENTID JSON to run live")
+      pending("live entity test uses synthetic IDs from fixture — set OPEN_BREWERY_DB_TEST_BREWERY_ENTID JSON to run live")
       return
     end
     local client = setup.client
@@ -97,7 +97,7 @@ describe("BreweryEntity", function()
     }
     local brewery_ref01_data_dt0_loaded, err = brewery_ref01_ent:load(brewery_ref01_match_dt0, nil)
     assert.is_nil(err)
-    local brewery_ref01_data_dt0_load_result = helpers.to_map(brewery_ref01_data_dt0_loaded)
+    local brewery_ref01_data_dt0_load_result = helpers.to_map(type(brewery_ref01_data_dt0_loaded) == 'table' and brewery_ref01_data_dt0_loaded.data_get and brewery_ref01_data_dt0_loaded:data_get() or brewery_ref01_data_dt0_loaded)
     assert.is_not_nil(brewery_ref01_data_dt0_load_result)
     assert.are.equal(brewery_ref01_data_dt0_load_result["id"], brewery_ref01_data["id"])
 
@@ -136,22 +136,22 @@ function brewery_basic_setup(extra)
   -- Detect ENTID env override before envOverride consumes it. When live
   -- mode is on without a real override, the basic test runs against synthetic
   -- IDs from the fixture and 4xx's. Surface this so the test can skip.
-  local entid_env_raw = os.getenv("OPENBREWERYDB_TEST_BREWERY_ENTID")
+  local entid_env_raw = os.getenv("OPEN_BREWERY_DB_TEST_BREWERY_ENTID")
   local idmap_overridden = entid_env_raw ~= nil and entid_env_raw:match("^%s*{") ~= nil
 
   local env = runner.env_override({
-    ["OPENBREWERYDB_TEST_BREWERY_ENTID"] = idmap,
-    ["OPENBREWERYDB_TEST_LIVE"] = "FALSE",
-    ["OPENBREWERYDB_TEST_EXPLAIN"] = "FALSE",
+    ["OPEN_BREWERY_DB_TEST_BREWERY_ENTID"] = idmap,
+    ["OPEN_BREWERY_DB_TEST_LIVE"] = "FALSE",
+    ["OPEN_BREWERY_DB_TEST_EXPLAIN"] = "FALSE",
   })
 
   local idmap_resolved = helpers.to_map(
-    env["OPENBREWERYDB_TEST_BREWERY_ENTID"])
+    env["OPEN_BREWERY_DB_TEST_BREWERY_ENTID"])
   if idmap_resolved == nil then
     idmap_resolved = helpers.to_map(idmap)
   end
 
-  if env["OPENBREWERYDB_TEST_LIVE"] == "TRUE" then
+  if env["OPEN_BREWERY_DB_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
       },
@@ -160,13 +160,13 @@ function brewery_basic_setup(extra)
     client = sdk.new(helpers.to_map(merged_opts))
   end
 
-  local live = env["OPENBREWERYDB_TEST_LIVE"] == "TRUE"
+  local live = env["OPEN_BREWERY_DB_TEST_LIVE"] == "TRUE"
   return {
     client = client,
     data = entity_data,
     idmap = idmap_resolved,
     env = env,
-    explain = env["OPENBREWERYDB_TEST_EXPLAIN"] == "TRUE",
+    explain = env["OPEN_BREWERY_DB_TEST_EXPLAIN"] == "TRUE",
     live = live,
     synthetic_only = live and not idmap_overridden,
     now = os.time() * 1000,

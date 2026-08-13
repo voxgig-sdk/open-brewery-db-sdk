@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# OpenBreweryDb SDK exists test
 
 import pytest
 from openbrewerydb_sdk import OpenBreweryDbSDK
