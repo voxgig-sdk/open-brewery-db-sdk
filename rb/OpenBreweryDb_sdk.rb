@@ -28,7 +28,7 @@ class OpenBreweryDbSDK
     utility = OpenBreweryDbUtility.new
     @_utility = utility
 
-    config = OpenBreweryDbConfig.make_config
+    config = OpenBreweryDbConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

@@ -40,7 +40,7 @@ class OpenBreweryDbSDK
         $utility = new OpenBreweryDbUtility();
         $this->_utility = $utility;
 
-        $config = OpenBreweryDbConfig::make_config();
+        $config = OpenBreweryDbConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

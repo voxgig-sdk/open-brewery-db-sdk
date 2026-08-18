@@ -15,7 +15,7 @@ require_relative "../OpenBreweryDb_sdk"
 module OpenBreweryDbFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = OpenBreweryDbConfig.make_config["feature"]
+    f = OpenBreweryDbConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

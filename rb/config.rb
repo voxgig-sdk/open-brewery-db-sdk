@@ -1,6 +1,20 @@
 # OpenBreweryDb SDK configuration
 
 module OpenBreweryDbConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,116 +40,73 @@ module OpenBreweryDbConfig
         "brewery" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "address_1",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "address_2",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "address_3",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "brewery_type",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
             {
-              "active" => true,
               "name" => "city",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 4,
             },
             {
-              "active" => true,
               "name" => "country",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 5,
             },
             {
-              "active" => true,
               "name" => "id",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 6,
             },
             {
-              "active" => true,
               "name" => "latitude",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 7,
             },
             {
-              "active" => true,
               "name" => "longitude",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 8,
             },
             {
-              "active" => true,
               "name" => "name",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 9,
             },
             {
-              "active" => true,
               "name" => "phone",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 10,
             },
             {
-              "active" => true,
               "name" => "postal_code",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 11,
             },
             {
-              "active" => true,
               "name" => "state",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 12,
             },
             {
-              "active" => true,
               "name" => "state_province",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 13,
             },
             {
-              "active" => true,
               "name" => "street",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 14,
             },
             {
-              "active" => true,
               "name" => "website_url",
-              "req" => false,
               "type" => "`$STRING`",
-              "index$" => 15,
             },
           ],
           "name" => "brewery",
@@ -145,73 +116,56 @@ module OpenBreweryDbConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_city",
                         "orig" => "by_city",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_country",
                         "orig" => "by_country",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_name",
                         "orig" => "by_name",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_postal",
                         "orig" => "by_postal",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_state",
                         "orig" => "by_state",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "kind" => "query",
                         "name" => "by_type",
                         "orig" => "by_type",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => 1,
                         "kind" => "query",
                         "name" => "page",
                         "orig" => "page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                       {
-                        "active" => true,
                         "example" => 50,
                         "kind" => "query",
                         "name" => "per_page",
                         "orig" => "per_page",
-                        "reqd" => false,
                         "type" => "`$INTEGER`",
                       },
                     ],
@@ -238,27 +192,22 @@ module OpenBreweryDbConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
             "load" => {
               "input" => "data",
               "name" => "load",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "params" => [
                       {
-                        "active" => true,
                         "kind" => "param",
                         "name" => "id",
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
-                        "index$" => 0,
                       },
                     ],
                   },
@@ -278,10 +227,8 @@ module OpenBreweryDbConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "load",
             },
           },
           "relations" => {

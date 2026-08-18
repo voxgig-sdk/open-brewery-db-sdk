@@ -36,7 +36,7 @@ class Config {
 
 
   options = {
-    base: 'https://api.openbrewerydb.org/v1',
+    base: "https://api.openbrewerydb.org/v1",
 
     headers: {
       "content-type": "application/json"
@@ -55,116 +55,73 @@ class Config {
     "brewery": {
       "fields": [
         {
-          "active": true,
           "name": "address_1",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 0
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "address_2",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 1
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "address_3",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 2
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "brewery_type",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 3
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "city",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 4
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "country",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 5
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "id",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 6
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "latitude",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 7
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "longitude",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 8
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "name",
           "req": true,
-          "type": "`$STRING`",
-          "index$": 9
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "phone",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 10
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "postal_code",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 11
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "state",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 12
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "state_province",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 13
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "street",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 14
+          "type": "`$STRING`"
         },
         {
-          "active": true,
           "name": "website_url",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 15
+          "type": "`$STRING`"
         }
       ],
       "name": "brewery",
@@ -174,73 +131,56 @@ class Config {
           "name": "list",
           "points": [
             {
-              "active": true,
               "args": {
                 "query": [
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_city",
                     "orig": "by_city",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_country",
                     "orig": "by_country",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_name",
                     "orig": "by_name",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_postal",
                     "orig": "by_postal",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_state",
                     "orig": "by_state",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "kind": "query",
                     "name": "by_type",
                     "orig": "by_type",
-                    "reqd": false,
                     "type": "`$STRING`"
                   },
                   {
-                    "active": true,
                     "example": 1,
                     "kind": "query",
                     "name": "page",
                     "orig": "page",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   },
                   {
-                    "active": true,
                     "example": 50,
                     "kind": "query",
                     "name": "per_page",
                     "orig": "per_page",
-                    "reqd": false,
                     "type": "`$INTEGER`"
                   }
                 ]
@@ -266,28 +206,23 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "list"
+          ]
         },
         "load": {
           "input": "data",
           "name": "load",
           "points": [
             {
-              "active": true,
               "args": {
                 "params": [
                   {
-                    "active": true,
                     "kind": "param",
                     "name": "id",
                     "orig": "id",
                     "reqd": true,
-                    "type": "`$STRING`",
-                    "index$": 0
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -306,11 +241,9 @@ class Config {
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
-              },
-              "index$": 0
+              }
             }
-          ],
-          "key$": "load"
+          ]
         }
       },
       "relations": {
