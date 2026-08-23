@@ -253,22 +253,22 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `address_1` |  |
-| `address_2` |  |
-| `address_3` |  |
-| `brewery_type` |  |
-| `city` |  |
-| `country` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `phone` |  |
-| `postal_code` |  |
-| `state` |  |
-| `state_province` |  |
-| `street` |  |
-| `website_url` |  |
+| `address_1` | Street address line 1 |
+| `address_2` | Street address line 2 |
+| `address_3` | Street address line 3 |
+| `brewery_type` | Type of brewery |
+| `city` | City where the brewery is located |
+| `country` | Country |
+| `id` | Unique identifier for the brewery |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the brewery |
+| `phone` | Phone number |
+| `postal_code` | Postal/ZIP code |
+| `state` | State abbreviation |
+| `state_province` | State or province |
+| `street` | Full street address |
+| `website_url` | Website URL |
 
 Operations: List, Load.
 
@@ -294,22 +294,22 @@ Create an instance: `brewery = client.Brewery`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address_1` | `String` |  |
-| `address_2` | `String` |  |
-| `address_3` | `String` |  |
-| `brewery_type` | `String` |  |
-| `city` | `String` |  |
-| `country` | `String` |  |
-| `id` | `String` |  |
-| `latitude` | `String` |  |
-| `longitude` | `String` |  |
-| `name` | `String` |  |
-| `phone` | `String` |  |
-| `postal_code` | `String` |  |
-| `state` | `String` |  |
-| `state_province` | `String` |  |
-| `street` | `String` |  |
-| `website_url` | `String` |  |
+| `address_1` | `String` | Street address line 1 |
+| `address_2` | `String` | Street address line 2 |
+| `address_3` | `String` | Street address line 3 |
+| `brewery_type` | `String` | Type of brewery |
+| `city` | `String` | City where the brewery is located |
+| `country` | `String` | Country |
+| `id` | `String` | Unique identifier for the brewery |
+| `latitude` | `String` | Latitude coordinate |
+| `longitude` | `String` | Longitude coordinate |
+| `name` | `String` | Name of the brewery |
+| `phone` | `String` | Phone number |
+| `postal_code` | `String` | Postal/ZIP code |
+| `state` | `String` | State abbreviation |
+| `state_province` | `String` | State or province |
+| `street` | `String` | Full street address |
+| `website_url` | `String` | Website URL |
 
 #### Example: Load
 

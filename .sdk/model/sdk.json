@@ -36,96 +36,112 @@
               "active": true,
               "name": "address_1",
               "req": false,
+              "short": "Street address line 1",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "address_2",
               "req": false,
+              "short": "Street address line 2",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "address_3",
               "req": false,
+              "short": "Street address line 3",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "brewery_type",
               "req": true,
+              "short": "Type of brewery",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "city",
               "req": true,
+              "short": "City where the brewery is located",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "country",
               "req": true,
+              "short": "Country",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the brewery",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "latitude",
               "req": false,
+              "short": "Latitude coordinate",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "longitude",
               "req": false,
+              "short": "Longitude coordinate",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": true,
+              "short": "Name of the brewery",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "phone",
               "req": false,
+              "short": "Phone number",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "postal_code",
               "req": false,
+              "short": "Postal/ZIP code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "state",
               "req": false,
+              "short": "State abbreviation",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "state_province",
               "req": false,
+              "short": "State or province",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "street",
               "req": false,
+              "short": "Full street address",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "website_url",
               "req": false,
+              "short": "Website URL",
               "type": "`$STRING`"
             }
           ],

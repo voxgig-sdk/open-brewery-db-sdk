@@ -8,81 +8,97 @@ main: kit: entity: brewery: {
     {
       name: "address_1"
       req: false
+      short: "Street address line 1"
       type: "`$STRING`"
     }
     {
       name: "address_2"
       req: false
+      short: "Street address line 2"
       type: "`$STRING`"
     }
     {
       name: "address_3"
       req: false
+      short: "Street address line 3"
       type: "`$STRING`"
     }
     {
       name: "brewery_type"
       req: true
+      short: "Type of brewery"
       type: "`$STRING`"
     }
     {
       name: "city"
       req: true
+      short: "City where the brewery is located"
       type: "`$STRING`"
     }
     {
       name: "country"
       req: true
+      short: "Country"
       type: "`$STRING`"
     }
     {
       name: "id"
       req: true
+      short: "Unique identifier for the brewery"
       type: "`$STRING`"
     }
     {
       name: "latitude"
       req: false
+      short: "Latitude coordinate"
       type: "`$STRING`"
     }
     {
       name: "longitude"
       req: false
+      short: "Longitude coordinate"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: true
+      short: "Name of the brewery"
       type: "`$STRING`"
     }
     {
       name: "phone"
       req: false
+      short: "Phone number"
       type: "`$STRING`"
     }
     {
       name: "postal_code"
       req: false
+      short: "Postal/ZIP code"
       type: "`$STRING`"
     }
     {
       name: "state"
       req: false
+      short: "State abbreviation"
       type: "`$STRING`"
     }
     {
       name: "state_province"
       req: false
+      short: "State or province"
       type: "`$STRING`"
     }
     {
       name: "street"
       req: false
+      short: "Full street address"
       type: "`$STRING`"
     }
     {
       name: "website_url"
       req: false
+      short: "Website URL"
       type: "`$STRING`"
     }
   ]

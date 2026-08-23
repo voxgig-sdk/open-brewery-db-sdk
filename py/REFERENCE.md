@@ -87,22 +87,22 @@ brewery = client.Brewery()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | `str` | No |  |
-| `address_2` | `str` | No |  |
-| `address_3` | `str` | No |  |
-| `brewery_type` | `str` | Yes |  |
-| `city` | `str` | Yes |  |
-| `country` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `latitude` | `str` | No |  |
-| `longitude` | `str` | No |  |
-| `name` | `str` | Yes |  |
-| `phone` | `str` | No |  |
-| `postal_code` | `str` | No |  |
-| `state` | `str` | No |  |
-| `state_province` | `str` | No |  |
-| `street` | `str` | No |  |
-| `website_url` | `str` | No |  |
+| `address_1` | `str` | No | Street address line 1 |
+| `address_2` | `str` | No | Street address line 2 |
+| `address_3` | `str` | No | Street address line 3 |
+| `brewery_type` | `str` | Yes | Type of brewery |
+| `city` | `str` | Yes | City where the brewery is located |
+| `country` | `str` | Yes | Country |
+| `id` | `str` | Yes | Unique identifier for the brewery |
+| `latitude` | `str` | No | Latitude coordinate |
+| `longitude` | `str` | No | Longitude coordinate |
+| `name` | `str` | Yes | Name of the brewery |
+| `phone` | `str` | No | Phone number |
+| `postal_code` | `str` | No | Postal/ZIP code |
+| `state` | `str` | No | State abbreviation |
+| `state_province` | `str` | No | State or province |
+| `street` | `str` | No | Full street address |
+| `website_url` | `str` | No | Website URL |
 
 ### Operations
 

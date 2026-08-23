@@ -263,22 +263,22 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `address_1` |  |
-| `address_2` |  |
-| `address_3` |  |
-| `brewery_type` |  |
-| `city` |  |
-| `country` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `phone` |  |
-| `postal_code` |  |
-| `state` |  |
-| `state_province` |  |
-| `street` |  |
-| `website_url` |  |
+| `address_1` | Street address line 1 |
+| `address_2` | Street address line 2 |
+| `address_3` | Street address line 3 |
+| `brewery_type` | Type of brewery |
+| `city` | City where the brewery is located |
+| `country` | Country |
+| `id` | Unique identifier for the brewery |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the brewery |
+| `phone` | Phone number |
+| `postal_code` | Postal/ZIP code |
+| `state` | State abbreviation |
+| `state_province` | State or province |
+| `street` | Full street address |
+| `website_url` | Website URL |
 
 Operations: List, Load.
 
@@ -304,22 +304,22 @@ Create an instance: `$brewery = $client->Brewery();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address_1` | `string` |  |
-| `address_2` | `string` |  |
-| `address_3` | `string` |  |
-| `brewery_type` | `string` |  |
-| `city` | `string` |  |
-| `country` | `string` |  |
-| `id` | `string` |  |
-| `latitude` | `string` |  |
-| `longitude` | `string` |  |
-| `name` | `string` |  |
-| `phone` | `string` |  |
-| `postal_code` | `string` |  |
-| `state` | `string` |  |
-| `state_province` | `string` |  |
-| `street` | `string` |  |
-| `website_url` | `string` |  |
+| `address_1` | `string` | Street address line 1 |
+| `address_2` | `string` | Street address line 2 |
+| `address_3` | `string` | Street address line 3 |
+| `brewery_type` | `string` | Type of brewery |
+| `city` | `string` | City where the brewery is located |
+| `country` | `string` | Country |
+| `id` | `string` | Unique identifier for the brewery |
+| `latitude` | `string` | Latitude coordinate |
+| `longitude` | `string` | Longitude coordinate |
+| `name` | `string` | Name of the brewery |
+| `phone` | `string` | Phone number |
+| `postal_code` | `string` | Postal/ZIP code |
+| `state` | `string` | State abbreviation |
+| `state_province` | `string` | State or province |
+| `street` | `string` | Full street address |
+| `website_url` | `string` | Website URL |
 
 #### Example: Load
 

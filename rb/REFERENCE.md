@@ -93,22 +93,22 @@ brewery = client.Brewery
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | `String` | No |  |
-| `address_2` | `String` | No |  |
-| `address_3` | `String` | No |  |
-| `brewery_type` | `String` | Yes |  |
-| `city` | `String` | Yes |  |
-| `country` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `latitude` | `String` | No |  |
-| `longitude` | `String` | No |  |
-| `name` | `String` | Yes |  |
-| `phone` | `String` | No |  |
-| `postal_code` | `String` | No |  |
-| `state` | `String` | No |  |
-| `state_province` | `String` | No |  |
-| `street` | `String` | No |  |
-| `website_url` | `String` | No |  |
+| `address_1` | `String` | No | Street address line 1 |
+| `address_2` | `String` | No | Street address line 2 |
+| `address_3` | `String` | No | Street address line 3 |
+| `brewery_type` | `String` | Yes | Type of brewery |
+| `city` | `String` | Yes | City where the brewery is located |
+| `country` | `String` | Yes | Country |
+| `id` | `String` | Yes | Unique identifier for the brewery |
+| `latitude` | `String` | No | Latitude coordinate |
+| `longitude` | `String` | No | Longitude coordinate |
+| `name` | `String` | Yes | Name of the brewery |
+| `phone` | `String` | No | Phone number |
+| `postal_code` | `String` | No | Postal/ZIP code |
+| `state` | `String` | No | State abbreviation |
+| `state_province` | `String` | No | State or province |
+| `street` | `String` | No | Full street address |
+| `website_url` | `String` | No | Website URL |
 
 ### Operations
 

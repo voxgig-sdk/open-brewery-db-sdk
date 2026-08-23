@@ -98,22 +98,22 @@ fmt.Println(brewery.GetName()) // "brewery"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `address_1` | `string` | No |  |
-| `address_2` | `string` | No |  |
-| `address_3` | `string` | No |  |
-| `brewery_type` | `string` | Yes |  |
-| `city` | `string` | Yes |  |
-| `country` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `latitude` | `string` | No |  |
-| `longitude` | `string` | No |  |
-| `name` | `string` | Yes |  |
-| `phone` | `string` | No |  |
-| `postal_code` | `string` | No |  |
-| `state` | `string` | No |  |
-| `state_province` | `string` | No |  |
-| `street` | `string` | No |  |
-| `website_url` | `string` | No |  |
+| `address_1` | `string` | No | Street address line 1 |
+| `address_2` | `string` | No | Street address line 2 |
+| `address_3` | `string` | No | Street address line 3 |
+| `brewery_type` | `string` | Yes | Type of brewery |
+| `city` | `string` | Yes | City where the brewery is located |
+| `country` | `string` | Yes | Country |
+| `id` | `string` | Yes | Unique identifier for the brewery |
+| `latitude` | `string` | No | Latitude coordinate |
+| `longitude` | `string` | No | Longitude coordinate |
+| `name` | `string` | Yes | Name of the brewery |
+| `phone` | `string` | No | Phone number |
+| `postal_code` | `string` | No | Postal/ZIP code |
+| `state` | `string` | No | State abbreviation |
+| `state_province` | `string` | No | State or province |
+| `street` | `string` | No | Full street address |
+| `website_url` | `string` | No | Website URL |
 
 ### Operations
 

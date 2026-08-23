@@ -256,22 +256,22 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `address_1` |  |
-| `address_2` |  |
-| `address_3` |  |
-| `brewery_type` |  |
-| `city` |  |
-| `country` |  |
-| `id` |  |
-| `latitude` |  |
-| `longitude` |  |
-| `name` |  |
-| `phone` |  |
-| `postal_code` |  |
-| `state` |  |
-| `state_province` |  |
-| `street` |  |
-| `website_url` |  |
+| `address_1` | Street address line 1 |
+| `address_2` | Street address line 2 |
+| `address_3` | Street address line 3 |
+| `brewery_type` | Type of brewery |
+| `city` | City where the brewery is located |
+| `country` | Country |
+| `id` | Unique identifier for the brewery |
+| `latitude` | Latitude coordinate |
+| `longitude` | Longitude coordinate |
+| `name` | Name of the brewery |
+| `phone` | Phone number |
+| `postal_code` | Postal/ZIP code |
+| `state` | State abbreviation |
+| `state_province` | State or province |
+| `street` | Full street address |
+| `website_url` | Website URL |
 
 Operations: List, Load.
 
@@ -297,22 +297,22 @@ Create an instance: `brewery = client.Brewery()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `address_1` | `str` |  |
-| `address_2` | `str` |  |
-| `address_3` | `str` |  |
-| `brewery_type` | `str` |  |
-| `city` | `str` |  |
-| `country` | `str` |  |
-| `id` | `str` |  |
-| `latitude` | `str` |  |
-| `longitude` | `str` |  |
-| `name` | `str` |  |
-| `phone` | `str` |  |
-| `postal_code` | `str` |  |
-| `state` | `str` |  |
-| `state_province` | `str` |  |
-| `street` | `str` |  |
-| `website_url` | `str` |  |
+| `address_1` | `str` | Street address line 1 |
+| `address_2` | `str` | Street address line 2 |
+| `address_3` | `str` | Street address line 3 |
+| `brewery_type` | `str` | Type of brewery |
+| `city` | `str` | City where the brewery is located |
+| `country` | `str` | Country |
+| `id` | `str` | Unique identifier for the brewery |
+| `latitude` | `str` | Latitude coordinate |
+| `longitude` | `str` | Longitude coordinate |
+| `name` | `str` | Name of the brewery |
+| `phone` | `str` | Phone number |
+| `postal_code` | `str` | Postal/ZIP code |
+| `state` | `str` | State abbreviation |
+| `state_province` | `str` | State or province |
+| `street` | `str` | Full street address |
+| `website_url` | `str` | Website URL |
 
 #### Example: Load
 

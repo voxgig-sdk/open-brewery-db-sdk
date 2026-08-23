@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "OpenBreweryDb",
+			"slug": "open-brewery-db",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,71 +36,87 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "address_1",
+						"short": "Street address line 1",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "address_2",
+						"short": "Street address line 2",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "address_3",
+						"short": "Street address line 3",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "brewery_type",
 						"req": true,
+						"short": "Type of brewery",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "city",
 						"req": true,
+						"short": "City where the brewery is located",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "country",
 						"req": true,
+						"short": "Country",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the brewery",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "latitude",
+						"short": "Latitude coordinate",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "longitude",
+						"short": "Longitude coordinate",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
 						"req": true,
+						"short": "Name of the brewery",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "phone",
+						"short": "Phone number",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "postal_code",
+						"short": "Postal/ZIP code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state",
+						"short": "State abbreviation",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "state_province",
+						"short": "State or province",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "street",
+						"short": "Full street address",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "website_url",
+						"short": "Website URL",
 						"type": "`$STRING`",
 					},
 				},

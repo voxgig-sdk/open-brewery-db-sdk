@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "OpenBreweryDb",
+            "slug": "open-brewery-db",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -50,71 +53,87 @@ def make_config():
         "fields": [
           {
             "name": "address_1",
+            "short": "Street address line 1",
             "type": "`$STRING`",
           },
           {
             "name": "address_2",
+            "short": "Street address line 2",
             "type": "`$STRING`",
           },
           {
             "name": "address_3",
+            "short": "Street address line 3",
             "type": "`$STRING`",
           },
           {
             "name": "brewery_type",
             "req": True,
+            "short": "Type of brewery",
             "type": "`$STRING`",
           },
           {
             "name": "city",
             "req": True,
+            "short": "City where the brewery is located",
             "type": "`$STRING`",
           },
           {
             "name": "country",
             "req": True,
+            "short": "Country",
             "type": "`$STRING`",
           },
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the brewery",
             "type": "`$STRING`",
           },
           {
             "name": "latitude",
+            "short": "Latitude coordinate",
             "type": "`$STRING`",
           },
           {
             "name": "longitude",
+            "short": "Longitude coordinate",
             "type": "`$STRING`",
           },
           {
             "name": "name",
             "req": True,
+            "short": "Name of the brewery",
             "type": "`$STRING`",
           },
           {
             "name": "phone",
+            "short": "Phone number",
             "type": "`$STRING`",
           },
           {
             "name": "postal_code",
+            "short": "Postal/ZIP code",
             "type": "`$STRING`",
           },
           {
             "name": "state",
+            "short": "State abbreviation",
             "type": "`$STRING`",
           },
           {
             "name": "state_province",
+            "short": "State or province",
             "type": "`$STRING`",
           },
           {
             "name": "street",
+            "short": "Full street address",
             "type": "`$STRING`",
           },
           {
             "name": "website_url",
+            "short": "Website URL",
             "type": "`$STRING`",
           },
         ],
