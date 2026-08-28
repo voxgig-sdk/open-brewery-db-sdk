@@ -42,21 +42,13 @@ class BreweryLoadMatch
 /** Request payload for Brewery#list. */
 class BreweryListMatch
 {
-    public ?string $address_1 = null;
-    public ?string $address_2 = null;
-    public ?string $address_3 = null;
-    public ?string $brewery_type = null;
-    public ?string $city = null;
-    public ?string $country = null;
-    public ?string $id = null;
-    public ?string $latitude = null;
-    public ?string $longitude = null;
-    public ?string $name = null;
-    public ?string $phone = null;
-    public ?string $postal_code = null;
-    public ?string $state = null;
-    public ?string $state_province = null;
-    public ?string $street = null;
-    public ?string $website_url = null;
+    public ?string $by_city = null;
+    public ?string $by_country = null;
+    public ?string $by_name = null;
+    public ?string $by_postal = null;
+    public ?string $by_state = null;
+    public ?string $by_type = null;
+    public ?int $page = null;
+    public ?int $per_page = null;
 }
 

@@ -88,70 +88,38 @@ BreweryLoadMatch = Struct.new(
 
 # Request payload for Brewery#list.
 #
-# @!attribute [rw] address_1
+# @!attribute [rw] by_city
 #   @return [String, nil]
 #
-# @!attribute [rw] address_2
+# @!attribute [rw] by_country
 #   @return [String, nil]
 #
-# @!attribute [rw] address_3
+# @!attribute [rw] by_name
 #   @return [String, nil]
 #
-# @!attribute [rw] brewery_type
+# @!attribute [rw] by_postal
 #   @return [String, nil]
 #
-# @!attribute [rw] city
+# @!attribute [rw] by_state
 #   @return [String, nil]
 #
-# @!attribute [rw] country
+# @!attribute [rw] by_type
 #   @return [String, nil]
 #
-# @!attribute [rw] id
-#   @return [String, nil]
+# @!attribute [rw] page
+#   @return [Integer, nil]
 #
-# @!attribute [rw] latitude
-#   @return [String, nil]
-#
-# @!attribute [rw] longitude
-#   @return [String, nil]
-#
-# @!attribute [rw] name
-#   @return [String, nil]
-#
-# @!attribute [rw] phone
-#   @return [String, nil]
-#
-# @!attribute [rw] postal_code
-#   @return [String, nil]
-#
-# @!attribute [rw] state
-#   @return [String, nil]
-#
-# @!attribute [rw] state_province
-#   @return [String, nil]
-#
-# @!attribute [rw] street
-#   @return [String, nil]
-#
-# @!attribute [rw] website_url
-#   @return [String, nil]
+# @!attribute [rw] per_page
+#   @return [Integer, nil]
 BreweryListMatch = Struct.new(
-  :address_1,
-  :address_2,
-  :address_3,
-  :brewery_type,
-  :city,
-  :country,
-  :id,
-  :latitude,
-  :longitude,
-  :name,
-  :phone,
-  :postal_code,
-  :state,
-  :state_province,
-  :street,
-  :website_url,
+  :by_city,
+  :by_country,
+  :by_name,
+  :by_postal,
+  :by_state,
+  :by_type,
+  :page,
+  :per_page,
   keyword_init: true
 )
 

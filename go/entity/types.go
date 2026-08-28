@@ -39,22 +39,14 @@ type BreweryLoadMatch struct {
 
 // BreweryListMatch is the typed request payload for Brewery.ListTyped.
 type BreweryListMatch struct {
-	Address1 *string `json:"address_1,omitempty"`
-	Address2 *string `json:"address_2,omitempty"`
-	Address3 *string `json:"address_3,omitempty"`
-	BreweryType *string `json:"brewery_type,omitempty"`
-	City *string `json:"city,omitempty"`
-	Country *string `json:"country,omitempty"`
-	Id *string `json:"id,omitempty"`
-	Latitude *string `json:"latitude,omitempty"`
-	Longitude *string `json:"longitude,omitempty"`
-	Name *string `json:"name,omitempty"`
-	Phone *string `json:"phone,omitempty"`
-	PostalCode *string `json:"postal_code,omitempty"`
-	State *string `json:"state,omitempty"`
-	StateProvince *string `json:"state_province,omitempty"`
-	Street *string `json:"street,omitempty"`
-	WebsiteUrl *string `json:"website_url,omitempty"`
+	ByCity *string `json:"by_city,omitempty"`
+	ByCountry *string `json:"by_country,omitempty"`
+	ByName *string `json:"by_name,omitempty"`
+	ByPostal *string `json:"by_postal,omitempty"`
+	ByState *string `json:"by_state,omitempty"`
+	ByType *string `json:"by_type,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PerPage *int `json:"per_page,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

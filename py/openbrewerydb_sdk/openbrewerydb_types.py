@@ -43,19 +43,11 @@ class BreweryLoadMatch(TypedDict):
 
 
 class BreweryListMatch(TypedDict, total=False):
-    address_1: str
-    address_2: str
-    address_3: str
-    brewery_type: str
-    city: str
-    country: str
-    id: str
-    latitude: str
-    longitude: str
-    name: str
-    phone: str
-    postal_code: str
-    state: str
-    state_province: str
-    street: str
-    website_url: str
+    by_city: str
+    by_country: str
+    by_name: str
+    by_postal: str
+    by_state: str
+    by_type: str
+    page: int
+    per_page: int
