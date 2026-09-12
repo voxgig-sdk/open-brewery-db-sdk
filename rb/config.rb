@@ -129,6 +129,10 @@ module OpenBreweryDbConfig
               "type" => "`$STRING`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "brewery",
           "op" => {
             "list" => {
@@ -193,8 +197,10 @@ module OpenBreweryDbConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/breweries",
-                  "parts" => [
-                    "breweries",
+                  "segments" => [
+                    {
+                      "lit" => "breweries",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -212,6 +218,9 @@ module OpenBreweryDbConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "breweries",
+                  ],
                 },
               ],
             },
@@ -234,9 +243,13 @@ module OpenBreweryDbConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/breweries/{id}",
-                  "parts" => [
-                    "breweries",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "breweries",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -247,6 +260,10 @@ module OpenBreweryDbConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "breweries",
+                    "{id}",
+                  ],
                 },
               ],
             },

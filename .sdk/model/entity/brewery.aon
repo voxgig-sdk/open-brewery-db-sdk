@@ -178,8 +178,10 @@ main: kit: entity: brewery: {
           }
           method: "GET"
           orig: "/breweries"
-          parts: [
-            "breweries"
+          segments: [
+            {
+              lit: "breweries"
+            }
           ]
           select: {
             exist: [
@@ -217,9 +219,13 @@ main: kit: entity: brewery: {
           }
           method: "GET"
           orig: "/breweries/{id}"
-          parts: [
-            "breweries"
-            "{id}"
+          segments: [
+            {
+              lit: "breweries"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

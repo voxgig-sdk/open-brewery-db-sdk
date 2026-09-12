@@ -117,6 +117,10 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
         },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
+        },
         ["name"] = "brewery",
         ["op"] = {
           ["list"] = {
@@ -181,8 +185,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/breweries",
-                ["parts"] = {
-                  "breweries",
+                ["segments"] = {
+                  {
+                    ["lit"] = "breweries",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -199,6 +205,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "breweries",
                 },
               },
             },
@@ -222,9 +231,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/breweries/{id}",
-                ["parts"] = {
-                  "breweries",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "breweries",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -234,6 +247,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "breweries",
+                  "{id}",
                 },
               },
             },
