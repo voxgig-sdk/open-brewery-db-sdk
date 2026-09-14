@@ -105,7 +105,7 @@ local results, err = client:Brewery():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
+| TypeScript | `@voxgig-sdk/open-brewery-db-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
 | Python | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
 | PHP | `voxgig-sdk/open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/open-brewery-db-sdk/go` | `go get github.com/voxgig-sdk/open-brewery-db-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Brewery():list()
 ### TypeScript
 
 ```ts
-import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
+import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db-sdk'
 
 const client = new OpenBreweryDbSDK()
 

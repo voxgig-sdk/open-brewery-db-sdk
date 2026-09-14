@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
+import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db-sdk'
 
 const client = new OpenBreweryDbSDK()
 ```
@@ -455,7 +455,7 @@ open-brewery-db/
 Import the SDK from the package root:
 
 ```ts
-import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db'
+import { OpenBreweryDbSDK } from '@voxgig-sdk/open-brewery-db-sdk'
 ```
 
 ### Entity state
