@@ -77,5 +77,350 @@
         "website_url": "s28f"
       }
     }
+  },
+  "requests": {
+    "GET /breweries": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "listBreweries",
+        "parameters": [
+          {
+            "description": "Filter breweries by city",
+            "in": "query",
+            "name": "by_city",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter breweries by state",
+            "in": "query",
+            "name": "by_state",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter breweries by name",
+            "in": "query",
+            "name": "by_name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter by type of brewery",
+            "in": "query",
+            "name": "by_type",
+            "required": false,
+            "schema": {
+              "enum": [
+                "micro",
+                "nano",
+                "regional",
+                "brewpub",
+                "large",
+                "planning",
+                "bar",
+                "contract",
+                "proprietor",
+                "closed"
+              ],
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter breweries by postal code",
+            "in": "query",
+            "name": "by_postal",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Filter breweries by country",
+            "in": "query",
+            "name": "by_country",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "description": "Page number for pagination",
+            "in": "query",
+            "name": "page",
+            "required": false,
+            "schema": {
+              "default": 1,
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "description": "Number of breweries per page",
+            "in": "query",
+            "name": "per_page",
+            "required": false,
+            "schema": {
+              "default": 50,
+              "maximum": 200,
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "items": {
+                    "properties": {
+                      "address_1": {
+                        "description": "Street address line 1",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "address_2": {
+                        "description": "Street address line 2",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "address_3": {
+                        "description": "Street address line 3",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "brewery_type": {
+                        "description": "Type of brewery",
+                        "enum": [
+                          "micro",
+                          "nano",
+                          "regional",
+                          "brewpub",
+                          "large",
+                          "planning",
+                          "bar",
+                          "contract",
+                          "proprietor",
+                          "closed"
+                        ],
+                        "type": "string"
+                      },
+                      "city": {
+                        "description": "City where the brewery is located",
+                        "type": "string"
+                      },
+                      "country": {
+                        "description": "Country",
+                        "type": "string"
+                      },
+                      "id": {
+                        "description": "Unique identifier for the brewery",
+                        "type": "string"
+                      },
+                      "latitude": {
+                        "description": "Latitude coordinate",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "longitude": {
+                        "description": "Longitude coordinate",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "name": {
+                        "description": "Name of the brewery",
+                        "type": "string"
+                      },
+                      "phone": {
+                        "description": "Phone number",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "postal_code": {
+                        "description": "Postal/ZIP code",
+                        "type": "string"
+                      },
+                      "state": {
+                        "description": "State abbreviation",
+                        "type": "string"
+                      },
+                      "state_province": {
+                        "description": "State or province",
+                        "type": "string"
+                      },
+                      "street": {
+                        "description": "Full street address",
+                        "nullable": true,
+                        "type": "string"
+                      },
+                      "website_url": {
+                        "description": "Website URL",
+                        "nullable": true,
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "name",
+                      "brewery_type",
+                      "city",
+                      "country"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    },
+    "GET /breweries/{id}": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getBreweryById",
+        "parameters": [
+          {
+            "description": "Unique identifier of the brewery",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "address_1": {
+                      "description": "Street address line 1",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "address_2": {
+                      "description": "Street address line 2",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "address_3": {
+                      "description": "Street address line 3",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "brewery_type": {
+                      "description": "Type of brewery",
+                      "enum": [
+                        "micro",
+                        "nano",
+                        "regional",
+                        "brewpub",
+                        "large",
+                        "planning",
+                        "bar",
+                        "contract",
+                        "proprietor",
+                        "closed"
+                      ],
+                      "type": "string"
+                    },
+                    "city": {
+                      "description": "City where the brewery is located",
+                      "type": "string"
+                    },
+                    "country": {
+                      "description": "Country",
+                      "type": "string"
+                    },
+                    "id": {
+                      "description": "Unique identifier for the brewery",
+                      "type": "string"
+                    },
+                    "latitude": {
+                      "description": "Latitude coordinate",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "longitude": {
+                      "description": "Longitude coordinate",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "name": {
+                      "description": "Name of the brewery",
+                      "type": "string"
+                    },
+                    "phone": {
+                      "description": "Phone number",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "postal_code": {
+                      "description": "Postal/ZIP code",
+                      "type": "string"
+                    },
+                    "state": {
+                      "description": "State abbreviation",
+                      "type": "string"
+                    },
+                    "state_province": {
+                      "description": "State or province",
+                      "type": "string"
+                    },
+                    "street": {
+                      "description": "Full street address",
+                      "nullable": true,
+                      "type": "string"
+                    },
+                    "website_url": {
+                      "description": "Website URL",
+                      "nullable": true,
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "brewery_type",
+                    "city",
+                    "country"
+                  ],
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "404": {
+            "description": "Brewery not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        },
+        "securitySource": "unspecified"
+      }
+    }
   }
 }

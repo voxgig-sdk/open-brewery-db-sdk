@@ -4,7 +4,10 @@ declare(strict_types=1);
 // OpenBreweryDb SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class OpenBreweryDbFeatures
@@ -14,8 +17,14 @@ class OpenBreweryDbFeatures
         switch ($name) {
             case "base":
                 return new OpenBreweryDbBaseFeature();
+            case "ratelimit":
+                return new OpenBreweryDbRatelimitFeature();
+            case "retry":
+                return new OpenBreweryDbRetryFeature();
             case "test":
                 return new OpenBreweryDbTestFeature();
+            case "timeout":
+                return new OpenBreweryDbTimeoutFeature();
             default:
                 return new OpenBreweryDbBaseFeature();
         }
@@ -31,7 +40,10 @@ class OpenBreweryDbFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

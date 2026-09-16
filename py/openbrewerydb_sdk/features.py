@@ -1,12 +1,18 @@
 # OpenBreweryDb SDK feature factory
 
 from openbrewerydb_sdk.feature.base_feature import OpenBreweryDbBaseFeature
+from openbrewerydb_sdk.feature.ratelimit_feature import OpenBreweryDbRatelimitFeature
+from openbrewerydb_sdk.feature.retry_feature import OpenBreweryDbRetryFeature
 from openbrewerydb_sdk.feature.test_feature import OpenBreweryDbTestFeature
+from openbrewerydb_sdk.feature.timeout_feature import OpenBreweryDbTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: OpenBreweryDbBaseFeature(),
+    "ratelimit": lambda: OpenBreweryDbRatelimitFeature(),
+    "retry": lambda: OpenBreweryDbRetryFeature(),
     "test": lambda: OpenBreweryDbTestFeature(),
+    "timeout": lambda: OpenBreweryDbTimeoutFeature(),
 }
 
 
