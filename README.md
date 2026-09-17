@@ -105,12 +105,12 @@ local results, err = client:Brewery():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/open-brewery-db-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
-| Python | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
-| PHP | `voxgig-sdk/open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
+| TypeScript | `@voxgig-sdk/open-brewery-db-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/tags) |
+| Python | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/tags) |
+| PHP | `voxgig-sdk/open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/open-brewery-db-sdk/go` | `go get github.com/voxgig-sdk/open-brewery-db-sdk/go@latest` |
-| Ruby | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
-| Lua | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/releases) |
+| Ruby | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/tags) |
+| Lua | `voxgig-sdk-open-brewery-db` | publish pending — [install from git tag](https://github.com/voxgig-sdk/open-brewery-db-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/open-brewery-db-sdk/go-cli` | `go install github.com/voxgig-sdk/open-brewery-db-sdk/go-cli/cmd/open-brewery-db@latest` |
 | Go MCP server | `github.com/voxgig-sdk/open-brewery-db-sdk/go-mcp` | `go get github.com/voxgig-sdk/open-brewery-db-sdk/go-mcp@latest` |
 
